@@ -48,11 +48,13 @@ Public MustInherit Class Frecuencia
 
             If STRSUBCHUNK2ID <> "data" Then ' EN UN FORMATO APROPIADO ESTE CAMPO DEBE DECIR = data
                 MsgBox("FORMATO INCORRECTO")
+                Return Temp
                 Exit Function
             End If
 
         Catch ex As Exception
             MsgBox(ex.Message)
+            Return Temp
             Exit Function
         End Try
 
