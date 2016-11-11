@@ -121,7 +121,7 @@ Public MustInherit Class Frecuencia
     ''' <param name="Archivo">Se requiere un OpenFileDialog con el directorio del Archivo.</param>
     ''' <returns></returns>
     Public Shared Function Obtener_Datos_WAV(Archivo As OpenFileDialog)
-        Dim Temp As Datos_WAV
+        Dim Temp As New Datos_WAV
         Dim MIFILESTREAM As FileStream = New FileStream(Archivo.FileName, FileMode.Open, FileAccess.Read)
         Dim LECTOR As BinaryReader = New BinaryReader(MIFILESTREAM)
 

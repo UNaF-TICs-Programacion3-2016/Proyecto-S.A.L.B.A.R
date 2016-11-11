@@ -21,7 +21,7 @@
         Matriz_Bruta = Frecuencia.Obtener_Matriz_de_Frecuencia(Objeto)
 
         Matriz_Refinada = Frecuencia.Obtener_Matriz_Promedio(Matriz_Bruta, 10000)
-        Matriz_BD = Frecuencia.Obtener_Matriz_Promedio(Matriz_Bruta, 7000)
+        Matriz_BD = Frecuencia.Obtener_Matriz_Promedio(Matriz_Bruta, 7000) 'supongamos que viene de la base de datos
 
         Matriz_Comparacion = Frecuencia.Comparar_Frecuencias(Matriz_Refinada, Matriz_Refinada)
 
