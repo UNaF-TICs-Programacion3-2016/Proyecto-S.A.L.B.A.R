@@ -40,13 +40,16 @@ Public MustInherit Class Frecuencia
 
             Dim SUBCHUNK2ID As Byte() = LECTOR.ReadBytes(4)
             Dim STRSUBCHUNK2ID As String = System.Text.Encoding.ASCII.GetString(SUBCHUNK2ID)
+            Dim SUBCHUNK2SIZE As Int32 = LECTOR.ReadInt32()
 
             If STRSUBCHUNK2ID <> "data" Then ' EN UN FORMATO APROPIADO ESTE CAMPO DEBE DECIR = data
                 MsgBox("FORMATO INCORRECTO")
                 Exit Function
             End If
 
-            Temp.Add(LECTOR.ReadInt16) 'DATOS EN INT16
+            For I = 0 To (SUBCHUNK2SIZE - 1) / 2 'MUESTRAS PARA CADA CANAL(DERECHO E IZQUIERDO)
+                Temp.Add(LECTOR.ReadInt16) 'DATOS EN INT16
+            Next
 
         Catch ex As Exception
             MsgBox(ex.Message)
