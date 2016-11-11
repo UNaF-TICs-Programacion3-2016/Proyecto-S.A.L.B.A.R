@@ -62,7 +62,7 @@ Public MustInherit Class Frecuencia
     ''' <param name="Frecuencia_en_Bruto">Se requiere una Matriz de Frecuencia en Bruto obtenida de la funcion "Obtener_Matriz_de_Frencuencia".</param>
     '''<param name="Limite">Se requiere la reprensacion numerica de elementos que forman 1 segundo de audio para poder utilizarla como limite.</param>
     ''' <returns></returns>
-    Public Shared Function Obtener_Matriz_Promedio(Frecuencia_en_Bruto() As ArrayList, Limite As Integer)
+    Public Shared Function Obtener_Matriz_Promedio(Frecuencia_en_Bruto As ArrayList, Limite As Integer)
         Dim Limite_Actual As Integer = Limite
         Dim Temp(Frecuencia_en_Bruto.Length / Limite) As Integer
         Dim i, j As Integer
