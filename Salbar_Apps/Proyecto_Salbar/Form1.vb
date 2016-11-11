@@ -13,6 +13,7 @@
         Dim Matriz_BD() As Integer
         Dim Matriz_Comparacion() As Integer
         Dim Resultado_final As Integer
+        Dim Tabla_De_la_BD As New DataTable
 
         Objeto.FileName = "C:/Damas Gratis - El Humito de mi Fasito.wav"
 
@@ -26,6 +27,8 @@
         Matriz_Comparacion = Frecuencia.Comparar_Frecuencias(Matriz_Refinada, Matriz_Refinada)
 
         Resultado_final = Frecuencia.Promediar_y_Refinar_Resultado(Matriz_Comparacion)
+
+        Tabla_De_la_BD = Conexion.Consultar_en_la_BD("perro")
 
     End Sub
 End Class
