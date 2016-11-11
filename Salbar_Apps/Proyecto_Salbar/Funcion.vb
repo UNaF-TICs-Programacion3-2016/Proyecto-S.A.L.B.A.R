@@ -64,16 +64,16 @@ Public MustInherit Class Frecuencia
     ''' <returns></returns>
     Public Shared Function Obtener_Matriz_Promedio(Frecuencia_en_Bruto As ArrayList, Limite As Integer)
         Dim Limite_Actual As Integer = Limite
-        Dim Temp(Frecuencia_en_Bruto.Length / Limite) As Integer
+        Dim Temp(Frecuencia_en_Bruto.Count / Limite) As Integer
         Dim i, j As Integer
 
-        For i = 0 To Frecuencia_en_Bruto.Length
+        For i = 0 To Frecuencia_en_Bruto.Count
             If i <> Limite_Actual Then
                 Temp(j) += Int(Frecuencia_en_Bruto(i))
             Else
                 Temp(j) = Temp(j) / Limite
                 j += 1
-                If i <> Frecuencia_en_Bruto.Length Then
+                If i <> Frecuencia_en_Bruto.Count Then
                     Limite_Actual += Limite
                     Temp(j) = Int(Frecuencia_en_Bruto(i))
                 End If
