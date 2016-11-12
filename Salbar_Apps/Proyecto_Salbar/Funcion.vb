@@ -107,14 +107,11 @@ Public MustInherit Class Frecuencia
     ''' </summary>
     ''' <param name="Matriz_Comparacion_de_Frecuencias">Se requiere una Matriz proveniente de la funcion "Comparar_Frecuencias".</param>
     ''' <returns></returns>
-    Public Shared Function Promediar_y_Refinar_Resultado(Matriz_Comparacion_de_Frecuencias() As Integer)
-        Dim Temp As Integer
-
+    Public Shared Function Promediar_y_Refinar_Resultado(Matriz_Comparacion_de_Frecuencias() As Integer) As Integer
         For Each Elemento As Integer In Matriz_Comparacion_de_Frecuencias
-            Temp += Elemento
+            Promediar_y_Refinar_Resultado += Elemento
         Next
-        Temp = Temp / Matriz_Comparacion_de_Frecuencias.Length
-        Return Temp
+        Promediar_y_Refinar_Resultado = Promediar_y_Refinar_Resultado / Matriz_Comparacion_de_Frecuencias.Length
     End Function
 
     ''' <summary>
@@ -122,30 +119,27 @@ Public MustInherit Class Frecuencia
     ''' </summary>
     ''' <param name="Archivo">Se requiere un OpenFileDialog con el directorio del Archivo.</param>
     ''' <returns></returns>
-    Public Shared Function Obtener_Datos_WAV(Archivo As OpenFileDialog)
-        Dim Temp As New Datos_WAV
+    Public Shared Function Obtener_Datos_WAV(Archivo As OpenFileDialog) As Datos_WAV
         Dim MIFILESTREAM As FileStream = New FileStream(Archivo.FileName, FileMode.Open, FileAccess.Read)
         Dim LECTOR As BinaryReader = New BinaryReader(MIFILESTREAM)
 
-        Temp.CHUNKID = LECTOR.ReadBytes(4)
-        Temp.STRCHUNKID = System.Text.Encoding.ASCII.GetString(Temp.CHUNKID)
-        Temp.CHUNKSIZE = LECTOR.ReadInt32() + 8
-        Temp.FORMAT = LECTOR.ReadBytes(4)
-        Temp.STRFORMAT = System.Text.Encoding.ASCII.GetString(Temp.FORMAT)
-        Temp.SUBCHUNK1ID = LECTOR.ReadBytes(4)
-        Temp.STRSUBCHUNK1ID = System.Text.Encoding.ASCII.GetString(Temp.SUBCHUNK1ID)
-        Temp.SUBCHUNK1SIZE = LECTOR.ReadInt32()
-        Temp.AUDIOFORMAT = LECTOR.ReadInt16()
-        Temp.NUMCHANNELS = LECTOR.ReadInt16()
-        Temp.SAMPLERATE = LECTOR.ReadInt32()
-        Temp.BYTERATE = LECTOR.ReadInt32()
-        Temp.BLOCKALIGN = LECTOR.ReadInt16()
-        Temp.BITPERSAMPLE = LECTOR.ReadInt16()
-        Temp.SUBCHUNK2ID = LECTOR.ReadBytes(4)
-        Temp.STRSUBCHUNK2ID = System.Text.Encoding.ASCII.GetString(Temp.SUBCHUNK2ID)
-        Temp.SUBCHUNK2SIZE = LECTOR.ReadInt32()
-
-        Return Temp
+        Obtener_Datos_WAV.CHUNKID = LECTOR.ReadBytes(4)
+        Obtener_Datos_WAV.STRCHUNKID = System.Text.Encoding.ASCII.GetString(Obtener_Datos_WAV.CHUNKID)
+        Obtener_Datos_WAV.CHUNKSIZE = LECTOR.ReadInt32() + 8
+        Obtener_Datos_WAV.FORMAT = LECTOR.ReadBytes(4)
+        Obtener_Datos_WAV.STRFORMAT = System.Text.Encoding.ASCII.GetString(Obtener_Datos_WAV.FORMAT)
+        Obtener_Datos_WAV.SUBCHUNK1ID = LECTOR.ReadBytes(4)
+        Obtener_Datos_WAV.STRSUBCHUNK1ID = System.Text.Encoding.ASCII.GetString(Obtener_Datos_WAV.SUBCHUNK1ID)
+        Obtener_Datos_WAV.SUBCHUNK1SIZE = LECTOR.ReadInt32()
+        Obtener_Datos_WAV.AUDIOFORMAT = LECTOR.ReadInt16()
+        Obtener_Datos_WAV.NUMCHANNELS = LECTOR.ReadInt16()
+        Obtener_Datos_WAV.SAMPLERATE = LECTOR.ReadInt32()
+        Obtener_Datos_WAV.BYTERATE = LECTOR.ReadInt32()
+        Obtener_Datos_WAV.BLOCKALIGN = LECTOR.ReadInt16()
+        Obtener_Datos_WAV.BITPERSAMPLE = LECTOR.ReadInt16()
+        Obtener_Datos_WAV.SUBCHUNK2ID = LECTOR.ReadBytes(4)
+        Obtener_Datos_WAV.STRSUBCHUNK2ID = System.Text.Encoding.ASCII.GetString(Obtener_Datos_WAV.SUBCHUNK2ID)
+        Obtener_Datos_WAV.SUBCHUNK2SIZE = LECTOR.ReadInt32()
     End Function
 
 
@@ -154,7 +148,7 @@ Public MustInherit Class Frecuencia
         Dim i, j As Integer
 
         For i = 0 To M_Menor.Length
-            Temp(i) = M_Mayor(i) - M_Menor(i)
+            Temp(i) = Math.Abs(M_Mayor(i) - M_Menor(i))
         Next
 
         Return Temp
