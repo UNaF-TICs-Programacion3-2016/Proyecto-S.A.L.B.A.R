@@ -31,13 +31,13 @@ Partial Class Agregar
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.WebBrowser1 = New System.Windows.Forms.WebBrowser()
         Me.BtnConfirmar = New System.Windows.Forms.Button()
         Me.BtnCancelar = New System.Windows.Forms.Button()
         Me.miip = New System.Windows.Forms.Label()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -110,14 +110,6 @@ Partial Class Agregar
         Me.Label3.TabIndex = 7
         Me.Label3.Text = "TIPO DE SONIDO"
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.Location = New System.Drawing.Point(21, 12)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(213, 189)
-        Me.PictureBox1.TabIndex = 8
-        Me.PictureBox1.TabStop = False
-        '
         'DateTimePicker1
         '
         Me.DateTimePicker1.Location = New System.Drawing.Point(478, 274)
@@ -130,7 +122,7 @@ Partial Class Agregar
         Me.WebBrowser1.Location = New System.Drawing.Point(21, 207)
         Me.WebBrowser1.MinimumSize = New System.Drawing.Size(20, 20)
         Me.WebBrowser1.Name = "WebBrowser1"
-        Me.WebBrowser1.Size = New System.Drawing.Size(432, 269)
+        Me.WebBrowser1.Size = New System.Drawing.Size(416, 269)
         Me.WebBrowser1.TabIndex = 10
         '
         'BtnConfirmar
@@ -160,6 +152,14 @@ Partial Class Agregar
         Me.miip.Size = New System.Drawing.Size(67, 24)
         Me.miip.TabIndex = 13
         Me.miip.Text = "Mi Ip :"
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Location = New System.Drawing.Point(21, 12)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(213, 189)
+        Me.PictureBox1.TabIndex = 8
+        Me.PictureBox1.TabStop = False
         '
         'Agregar
         '

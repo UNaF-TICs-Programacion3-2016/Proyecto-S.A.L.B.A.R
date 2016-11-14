@@ -104,6 +104,7 @@
     <Compile Include="Agregar.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Geolocalizacion.vb" />
     <Compile Include="Pantalla Inicio.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -222,6 +223,9 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.vb</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\21505311-Green-Parrot-Vector-de-dibujos-animados-Ilustraci-n-Foto-de-archivo.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

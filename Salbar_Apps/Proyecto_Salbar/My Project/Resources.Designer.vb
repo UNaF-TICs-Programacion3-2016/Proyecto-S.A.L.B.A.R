@@ -63,6 +63,16 @@ Namespace My.Resources
         '''<summary>
         '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property _21505311_Green_Parrot_Vector_de_dibujos_animados_Ilustraci_n_Foto_de_archivo() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("_21505311_Green_Parrot_Vector_de_dibujos_animados_Ilustraci_n_Foto_de_archivo", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property _3_icono2() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("_3_icono2", resourceCulture)
@@ -76,16 +86,6 @@ Namespace My.Resources
         Friend ReadOnly Property agregar() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("agregar", resourceCulture)
-                Return CType(obj,System.Drawing.Bitmap)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        '''</summary>
-        Friend ReadOnly Property LoritoJorge() As System.Drawing.Bitmap
-            Get
-                Dim obj As Object = ResourceManager.GetObject("LoritoJorge", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
