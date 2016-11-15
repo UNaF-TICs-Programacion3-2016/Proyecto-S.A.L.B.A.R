@@ -3,7 +3,7 @@
     Public oConexion As New Conexion
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        DataGridView1.DataSource = oConexion.Consultar_en_la_BD("categorias")
+        DataGridView1.DataSource = oConexion.Obtener_Lista("categorias")
     End Sub
 
     '' Suponiendo que ya tenemos la matriz donde se aloja todos los valores para cada milisegundo
@@ -30,7 +30,7 @@
 
         Resultado_final = oFrecuencia.Promediar_y_Refinar_Resultado(Matriz_Comparacion)
 
-        Tabla_De_la_BD = oConexion.Consultar_en_la_BD("perro")
+        'Tabla_De_la_BD = oConexion.Consultar_en_la_BD("perro")
 
     End Sub
 End Class
