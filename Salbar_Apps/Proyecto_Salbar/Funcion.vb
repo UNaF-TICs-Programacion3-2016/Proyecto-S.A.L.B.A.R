@@ -1,6 +1,6 @@
 ﻿Imports System.IO
 
-Public MustInherit Class Frecuencia
+Public Class Frecuencia
     ''La idea de esta clase es no heredarla ni instanciarla,
     ''sino solo llamarla por sus funciones compartidas, como por ejemplo la clase "Math".
 
@@ -31,7 +31,7 @@ Public MustInherit Class Frecuencia
     ''' </summary>
     ''' <param name="Archivo">Se requiere un OpenFileDialog con el directorio del Archivo.</param>
     ''' <returns></returns>
-    Public Shared Function Obtener_Matriz_de_Frecuencia(Archivo As OpenFileDialog)
+    Public Function Obtener_Matriz_de_Frecuencia(Archivo As OpenFileDialog)
         Dim Temp As New ArrayList
 
         Try
@@ -67,7 +67,7 @@ Public MustInherit Class Frecuencia
     ''' <param name="Frecuencia_en_Bruto">Se requiere una Matriz de Frecuencia en Bruto obtenida de la funcion "Obtener_Matriz_de_Frencuencia".</param>
     '''<param name="Limite">Se requiere la reprensacion numerica de elementos que forman 1 segundo de audio para poder utilizarla como limite.</param>
     ''' <returns></returns>
-    Public Shared Function Obtener_Matriz_Promedio(Frecuencia_en_Bruto As ArrayList, Limite As Integer)
+    Public Function Obtener_Matriz_Promedio(Frecuencia_en_Bruto As ArrayList, Limite As Integer)
         Dim Limite_Actual As Integer = Limite
         Dim Temp(Frecuencia_en_Bruto.Count / Limite) As Integer
         Dim i, j As Integer
@@ -94,7 +94,7 @@ Public MustInherit Class Frecuencia
     ''' <param name="Frecuencia_BD">Se requiere de una Matriz Frecuencia provenida de la base de datos.</param>
     ''' <param name="Frecuencia_A_Comparar">Se requiere la matriz de la frencuencia Promedio que se desea comparar.</param>
     ''' <returns></returns>
-    Public Shared Function Comparar_Frecuencias(Frecuencia_BD() As Integer, Frecuencia_A_Comparar() As Integer)
+    Public Function Comparar_Frecuencias(Frecuencia_BD() As Integer, Frecuencia_A_Comparar() As Integer)
         If Frecuencia_BD.Length > Frecuencia_A_Comparar.Length Then
             Return Comparando(Frecuencia_BD, Frecuencia_A_Comparar)
         Else
@@ -107,7 +107,7 @@ Public MustInherit Class Frecuencia
     ''' </summary>
     ''' <param name="Matriz_Comparacion_de_Frecuencias">Se requiere una Matriz proveniente de la funcion "Comparar_Frecuencias".</param>
     ''' <returns></returns>
-    Public Shared Function Promediar_y_Refinar_Resultado(Matriz_Comparacion_de_Frecuencias() As Integer) As Integer
+    Public Function Promediar_y_Refinar_Resultado(Matriz_Comparacion_de_Frecuencias() As Integer) As Integer
         For Each Elemento As Integer In Matriz_Comparacion_de_Frecuencias
             Promediar_y_Refinar_Resultado += Elemento
         Next
@@ -119,7 +119,7 @@ Public MustInherit Class Frecuencia
     ''' </summary>
     ''' <param name="Archivo">Se requiere un OpenFileDialog con el directorio del Archivo.</param>
     ''' <returns></returns>
-    Public Shared Function Obtener_Datos_WAV(Archivo As OpenFileDialog) As Datos_WAV
+    Public Function Obtener_Datos_WAV(Archivo As OpenFileDialog) As Datos_WAV
         Dim MIFILESTREAM As FileStream = New FileStream(Archivo.FileName, FileMode.Open, FileAccess.Read)
         Dim LECTOR As BinaryReader = New BinaryReader(MIFILESTREAM)
 
@@ -142,8 +142,7 @@ Public MustInherit Class Frecuencia
         Obtener_Datos_WAV.SUBCHUNK2SIZE = LECTOR.ReadInt32()
     End Function
 
-
-    Private Shared Function Comparando(M_Mayor() As Integer, M_Menor() As Integer)
+    Private Function Comparando(M_Mayor() As Integer, M_Menor() As Integer)
         Dim Temp(M_Menor.Length) As Integer
         Dim i, j As Integer
 
