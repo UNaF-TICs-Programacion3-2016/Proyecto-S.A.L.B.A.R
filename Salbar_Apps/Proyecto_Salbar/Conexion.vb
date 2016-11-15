@@ -27,6 +27,9 @@ Public Class Conexion
     End Function
 
     Public Function Consultar_en_la_BD(Entidad As String, Filtro As String) As DataTable 'categotia, especie genero, lugar fecha y hora
+        Select Case UCase(Filtro)
+            Case = ""
+        End Select
         Return Consultando("SELECT * FROM ENTIDAD_CAB WHERE ")
     End Function
 
