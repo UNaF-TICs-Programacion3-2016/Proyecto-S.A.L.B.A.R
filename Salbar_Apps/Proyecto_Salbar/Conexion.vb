@@ -4,8 +4,6 @@ Imports Oracle.DataAccess.Types
 Public Class Conexion
     Private Conn As New OracleConnection("Data Source = 192.168.2.111;User id = SALBAR;Password = salbar;")
 
-    Const hola As String = "Vaca"
-
     Public Function Consultar_en_la_BD() As DataTable
         Return Consultando("SELECT * FROM ENTIDAD_CAB")
     End Function
