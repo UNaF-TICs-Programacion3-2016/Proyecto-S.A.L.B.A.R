@@ -35,20 +35,23 @@ Public Class Geolocalizacion
         End Set
     End Property
 
-
-
     Public Function myIp() As String
-        Dim IPPublic = ""
-        Dim IPPUBLICA As String
-        Dim ip As New WebClient
-        IPPUBLICA = ip.DownloadString("http://checkip.dyndns.org/").Replace("<html><head><title>Current IP Check</title></head><body>Current IP Address: ", "").Replace("</body></html>", "")
+        Try
+            Dim IPPublic = ""
+            Dim IPPUBLICA As String
+            Dim ip As New WebClient
+            IPPUBLICA = ip.DownloadString("http://checkip.dyndns.org/").Replace("<html><head><title>Current IP Check</title></head><body>Current IP Address: ", "").Replace("</body></html>", "")
 
-        Dim doc As New XmlDocument()
-        doc.Load("http://freegeoip.net/xml/" + IPPUBLICA)
-        Dim nodeLatitud As XmlNodeList = doc.GetElementsByTagName("Latitude")
-        Dim nodeLongitud As XmlNodeList = doc.GetElementsByTagName("Longitude")
-        _latitud = nodeLatitud(0).InnerText
-        _longitud = nodeLongitud(0).InnerText
-        Return _latitud + "," + _longitud
+            Dim doc As New XmlDocument()
+            doc.Load("http://freegeoip.net/xml/" + IPPUBLICA)
+            Dim nodeLatitud As XmlNodeList = doc.GetElementsByTagName("Latitude")
+            Dim nodeLongitud As XmlNodeList = doc.GetElementsByTagName("Longitude")
+            _latitud = nodeLatitud(0).InnerText
+            _longitud = nodeLongitud(0).InnerText
+            Return _latitud + "," + _longitud
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+
     End Function
 End Class

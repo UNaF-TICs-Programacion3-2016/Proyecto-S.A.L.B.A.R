@@ -1,9 +1,6 @@
 ﻿
 Public Class Agregar
-    Private IP As New Geolocalizacion
     Private Sub Agregar_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        miip.Text = IP.myIp
+        miip.Text = "Coordenadas:" + Pantalla_de_Cargavb.IP.latitud + "," + Pantalla_de_Cargavb.IP.longitud
     End Sub
-
-
 End Class

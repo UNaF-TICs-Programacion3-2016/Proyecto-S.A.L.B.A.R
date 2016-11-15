@@ -104,7 +104,19 @@
     <Compile Include="Agregar.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Administrador.Designer.vb">
+      <DependentUpon>Administrador.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Administrador.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Geolocalizacion.vb" />
+    <Compile Include="Pantalla de Cargavb.Designer.vb">
+      <DependentUpon>Pantalla de Cargavb.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Pantalla de Cargavb.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Pantalla Inicio.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -145,6 +157,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Analizar.resx">
       <DependentUpon>Analizar.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administrador.resx">
+      <DependentUpon>Administrador.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantalla de Cargavb.resx">
+      <DependentUpon>Pantalla de Cargavb.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantalla Inicio.resx">
       <DependentUpon>Pantalla Inicio.vb</DependentUpon>
@@ -226,6 +244,40 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\21505311-Green-Parrot-Vector-de-dibujos-animados-Ilustraci-n-Foto-de-archivo.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\6886489-green-background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Splash.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxWMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\actualizar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

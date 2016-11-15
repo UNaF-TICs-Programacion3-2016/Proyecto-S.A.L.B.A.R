@@ -15,7 +15,7 @@ Public Class Analizar
 
             Dim Reader As OracleDataReader = CMD.ExecuteReader()
             Tabla.Load(Reader)
-            Grilla.DataSource = Tabla
+            '  Grilla.DataSource = Tabla
 
         Catch ex As Exception
             MsgBox(ex.Message)

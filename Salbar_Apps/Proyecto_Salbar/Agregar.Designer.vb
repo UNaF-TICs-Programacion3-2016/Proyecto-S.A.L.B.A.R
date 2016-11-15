@@ -61,6 +61,7 @@ Partial Class Agregar
         '
         'ComboBox1
         '
+        Me.ComboBox1.BackColor = System.Drawing.SystemColors.InactiveBorder
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Location = New System.Drawing.Point(475, 35)
         Me.ComboBox1.Name = "ComboBox1"
@@ -69,6 +70,7 @@ Partial Class Agregar
         '
         'ComboBox2
         '
+        Me.ComboBox2.BackColor = System.Drawing.SystemColors.InactiveBorder
         Me.ComboBox2.FormattingEnabled = True
         Me.ComboBox2.Location = New System.Drawing.Point(475, 109)
         Me.ComboBox2.Name = "ComboBox2"
@@ -77,6 +79,7 @@ Partial Class Agregar
         '
         'ComboBox3
         '
+        Me.ComboBox3.BackColor = System.Drawing.SystemColors.InactiveBorder
         Me.ComboBox3.FormattingEnabled = True
         Me.ComboBox3.Location = New System.Drawing.Point(475, 193)
         Me.ComboBox3.Name = "ComboBox3"
@@ -86,33 +89,42 @@ Partial Class Agregar
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(475, 19)
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.SystemColors.ActiveCaption
+        Me.Label1.Location = New System.Drawing.Point(472, 14)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(95, 13)
+        Me.Label1.Size = New System.Drawing.Size(143, 18)
         Me.Label1.TabIndex = 5
         Me.Label1.Text = "ESPECIE ANIMAL"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(475, 93)
+        Me.Label2.BackColor = System.Drawing.Color.Transparent
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.SystemColors.ActiveCaption
+        Me.Label2.Location = New System.Drawing.Point(475, 89)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(93, 13)
+        Me.Label2.Size = New System.Drawing.Size(138, 18)
         Me.Label2.TabIndex = 6
         Me.Label2.Text = "TIPO DE ANIMAL"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(475, 177)
+        Me.Label3.BackColor = System.Drawing.Color.Transparent
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.SystemColors.ActiveCaption
+        Me.Label3.Location = New System.Drawing.Point(471, 170)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(95, 13)
+        Me.Label3.Size = New System.Drawing.Size(153, 20)
         Me.Label3.TabIndex = 7
         Me.Label3.Text = "TIPO DE SONIDO"
         '
         'DateTimePicker1
         '
-        Me.DateTimePicker1.Location = New System.Drawing.Point(478, 274)
+        Me.DateTimePicker1.Location = New System.Drawing.Point(475, 260)
         Me.DateTimePicker1.Name = "DateTimePicker1"
         Me.DateTimePicker1.Size = New System.Drawing.Size(200, 20)
         Me.DateTimePicker1.TabIndex = 9
@@ -127,37 +139,42 @@ Partial Class Agregar
         '
         'BtnConfirmar
         '
-        Me.BtnConfirmar.Location = New System.Drawing.Point(478, 415)
+        Me.BtnConfirmar.BackColor = System.Drawing.Color.Lime
+        Me.BtnConfirmar.Location = New System.Drawing.Point(478, 391)
         Me.BtnConfirmar.Name = "BtnConfirmar"
         Me.BtnConfirmar.Size = New System.Drawing.Size(75, 23)
         Me.BtnConfirmar.TabIndex = 11
         Me.BtnConfirmar.Text = "Confirmar"
-        Me.BtnConfirmar.UseVisualStyleBackColor = True
+        Me.BtnConfirmar.UseVisualStyleBackColor = False
         '
         'BtnCancelar
         '
-        Me.BtnCancelar.Location = New System.Drawing.Point(587, 415)
+        Me.BtnCancelar.BackColor = System.Drawing.Color.Red
+        Me.BtnCancelar.Location = New System.Drawing.Point(601, 391)
         Me.BtnCancelar.Name = "BtnCancelar"
         Me.BtnCancelar.Size = New System.Drawing.Size(75, 23)
         Me.BtnCancelar.TabIndex = 12
         Me.BtnCancelar.Text = "Cancelar"
-        Me.BtnCancelar.UseVisualStyleBackColor = True
+        Me.BtnCancelar.UseVisualStyleBackColor = False
         '
         'miip
         '
         Me.miip.AutoSize = True
         Me.miip.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.miip.Location = New System.Drawing.Point(528, 360)
+        Me.miip.Location = New System.Drawing.Point(471, 326)
         Me.miip.Name = "miip"
-        Me.miip.Size = New System.Drawing.Size(67, 24)
+        Me.miip.Size = New System.Drawing.Size(135, 24)
         Me.miip.TabIndex = 13
-        Me.miip.Text = "Mi Ip :"
+        Me.miip.Text = "Coordenadas"
         '
         'PictureBox1
         '
+        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox1.Image = Global.Proyecto_Salbar.My.Resources.Resources._21505311_Green_Parrot_Vector_de_dibujos_animados_Ilustraci_n_Foto_de_archivo
         Me.PictureBox1.Location = New System.Drawing.Point(21, 12)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(213, 189)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 8
         Me.PictureBox1.TabStop = False
         '
@@ -166,6 +183,7 @@ Partial Class Agregar
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.BackgroundImage = Global.Proyecto_Salbar.My.Resources.Resources.background
         Me.ClientSize = New System.Drawing.Size(827, 488)
         Me.Controls.Add(Me.miip)
         Me.Controls.Add(Me.BtnCancelar)
@@ -181,8 +199,10 @@ Partial Class Agregar
         Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "Agregar"
-        Me.Text = "Form2"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "AGREGAR"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
