@@ -7,6 +7,7 @@ Public Class Conexion
     Public Function Consultar_en_la_BD() As DataTable
         Return Consultando("select * from entidad_cab", "entidad_cab")
     End Function
+
     Public Function Consultar_en_la_BD(Dato As String) As DataTable
         Select Case UCase(Dato)
             Case = "ANIMALES"
