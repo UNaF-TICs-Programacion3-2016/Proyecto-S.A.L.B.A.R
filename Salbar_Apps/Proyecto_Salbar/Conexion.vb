@@ -3,12 +3,20 @@ Imports Oracle.DataAccess.Types
 
 Public Class Conexion
     Private Conn As New OracleConnection("Data Source = 190.5.166.219;User id = SALBAR;Password = salbar;")
-
-    Public Function Consultar_en_la_BD() As DataTable
-        Return Consultando("select * from entidad_cab", "entidad_cab")
+    ''' <summary>
+    ''' Permite obtener todos los registros de una determinada tabla.
+    ''' </summary>
+    ''' <param name="tabla">Se requiere el nombre de la tabla a consultar.</param>
+    ''' <returns></returns>
+    Public Function Obtener_Tabla(Tabla As String) As DataTable
+        Return Consultando("select * from " + UCase(Tabla), UCase(Tabla))
     End Function
-
-    Public Function Consultar_en_la_BD(Dato As String) As DataTable
+    ''' <summary>
+    ''' Permite obtener una lista determinada de registro a partir del un dato espesifico. Recomendada para cargar Combobox's.
+    ''' </summary>
+    ''' <param name="Dato">Se requiere un dato para extraer.</param>
+    ''' <returns></returns>
+    Public Function Obtener_Lista(Dato As String) As DataTable
         Select Case UCase(Dato)
             Case = "ANIMALES"
                 Return Consultando("select id_entidad_cab, nombre_ent from entidad_Cab where nivel = especie", "entidad_cab")
@@ -17,7 +25,7 @@ Public Class Conexion
                 Return Consultando("select id_entidad_cab, nombre_ent from entidad_cab where nivel = categoria", "entidad_cab")
 
             Case = "SONIDOS"
-                Return Consultando("select * from descripcion_Sonido", "descripcion_sonido")
+                Return Consultando("select id_descripcion_sonido, tipo from descripcion_Sonido", "descripcion_sonido")
 
             Case = "PAISES"
                 Return Consultando("select id_ubicacion, descripcion from ubicacion where nivel = pais", "ubicacion")
@@ -27,13 +35,37 @@ Public Class Conexion
 
             Case = "CIUDADES"
                 Return Consultando("select id_ubicacion, descripcion from ubicacion where nivel = ciudad", "ubicacion")
+        End Select
+    End Function
+    ''' <summary>
+    ''' Permite Obtener una lista de elementos que pertenece a un grupo. Recomendada para Filtros.
+    ''' </summary>
+    ''' <param name="Tipo">Se requiere un tipo de conjunto de elementos. Ej: Pais.</param>
+    ''' <param name="Dato">Se requiere el nombre del conjunto elegido. EJ: Argentina.</param>
+    ''' <returns></returns>
+    Public Function Obtener_Lista(Tipo As String, Dato As String) As DataTable
+        Select Case UCase(Tipo)
+            Case = "ANIMAL"
+                Return Consultando("Select * from entidad_cab, sonido where nombre_ent = " + UCase(Dato) + "and rela_sonido = id_sonido", "Animal+Sonido")
 
-            Case Else
-                Return Consultando("Select * from entidad_cab where nombre_ent = " + UCase(Dato), "entidad_cab")
+            Case = "CATEGORIA"
+                Return Consultando("Select * from entidad_cab where nombre_ent = " + UCase(Dato) + "and rela_padre = id_entidad_cab", "Categoria+Animal")
+
+            Case = "SONIDO"
+                Return Consultando("Select * from descripcion, sonido where tipo = " + UCase(Dato) + "and rela_sonido = id_sonido", "Clasificacion+Sonido")
+
+            Case = "PAIS"
+                Return Consultando("Select * from ubicacion where descripcion = " + UCase(Dato) + "and rela_padre = id_ubicacion", "Pais+Region")
+
+            Case = "REGION"
+                Return Consultando("Select * from ubicacion where descripcion = " + UCase(Dato) + "and rela_padre = id_ubicacion", "Region+Ciudad")
+
+            Case = "CIUDAD"
+                Return Consultando("Select * from ubicacion, entidad_cab where description = " + UCase(Dato) + "and rela_ubicacion = id_ubicacion", "Ciudad+Animal")
         End Select
     End Function
 
-    Public Function Consultar_en_la_BD(Entidad As String, Filtro As String, Dato As String) As DataTable 'categotia, especie genero, lugar fecha y hora
+    Public Function Obtener_Lista(Entidad As String, Filtro As String, Dato As String) As DataTable
         Dim Temp As String = "select * from entidad_cab where nombre_ent =" + UCase(Entidad)
         Select Case UCase(Filtro)
             Case = "SEXO"
@@ -45,7 +77,9 @@ Public Class Conexion
         End Select
     End Function
 
-
+    Public Function Obtener_a_Partir_de_ID(Tabla As String, ID As Integer) As DataRow
+        Return Consultando("", "").Rows(0)
+    End Function
     Private Function Consultando(Consulta As String, Tabla As String) As DataTable
         Dim DS_Frecuencia As New DataSet
         Dim Adapter As New OracleDataAdapter(UCase(Consulta), Conn)
