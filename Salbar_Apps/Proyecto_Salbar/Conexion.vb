@@ -2,7 +2,7 @@
 Imports Oracle.DataAccess.Types
 
 Public Class Conexion
-    Private Conn As New OracleConnection("Data Source = 190.5.166.219;User id = SALBAR;Password = salbar;")
+    Private Conn As New OracleConnection("Data Source = 192.168.2.111;User id = SALBAR;Password = salbar;")
     ''' <summary>
     ''' Permite obtener todos los registros de una determinada tabla.
     ''' </summary>
@@ -19,22 +19,22 @@ Public Class Conexion
     Public Function Obtener_Lista(Dato As String) As DataTable
         Select Case UCase(Dato)
             Case = "ANIMALES"
-                Return Consultando("select id_entidad_cab, nombre_ent from entidad_Cab where nivel = especie", "entidad_cab")
+                Return Consultando("select id_entidad_cab, nombre_ent from entidad_cab where nivel = 'especie'", "entidad_cab")
 
             Case = "CATEGORIAS"
-                Return Consultando("select id_entidad_cab, nombre_ent from entidad_cab where nivel = categoria", "entidad_cab")
+                Return Consultando("select id_entidad_cab, nombre_ent from entidad_cab where nivel = 'categoria'", "entidad_cab")
 
             Case = "SONIDOS"
                 Return Consultando("select id_descripcion_sonido, tipo from descripcion_Sonido", "descripcion_sonido")
 
             Case = "PAISES"
-                Return Consultando("select id_ubicacion, descripcion from ubicacion where nivel = pais", "ubicacion")
+                Return Consultando("select id_ubicacion, descripcion from ubicacion where nivel = 'pais'", "ubicacion")
 
             Case = "REGIONES"
-                Return Consultando("select id_ubicacion, descripcion from ubicacion where nivel = region", "ubicacion")
+                Return Consultando("select id_ubicacion, descripcion from ubicacion where nivel = 'region'", "ubicacion")
 
             Case = "CIUDADES"
-                Return Consultando("select id_ubicacion, descripcion from ubicacion where nivel = ciudad", "ubicacion")
+                Return Consultando("select id_ubicacion, descripcion from ubicacion where nivel = 'ciudad'", "ubicacion")
         End Select
     End Function
     ''' <summary>
@@ -92,48 +92,53 @@ Public Class Conexion
         Return DS_Frecuencia.Tables(UCase(Tabla))
     End Function
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    Public Function Insertar_en_mi_tabla(pais As String) As Boolean
-        Dim conexcion As New OracleConnection("Data Source = localhost;User id = SnGa089;Password = weightlifting;")
-        Dim adaptador As New OracleDataAdapter("SELECT * FROM PAIS_ORIGEN", conexcion)
-        Dim DataSet As New DataSet
+    Public Function Insertar_en_mi_tabla(Animal As String, Clasificacion As String, Sexo As String, Sonido_Tipo As String,
+                    M_Frecuencia() As Integer, Pais As String, Region As String, Ciudad As String, Fecha_de_Captura As DateTime, Estacion_del_año As String) As Boolean
+        Dim adaptador As New OracleDataAdapter("SELECT * FROM ENTIDAD_CAB", Conn)
+        Dim DS_Frecuencia As New DataSet
         Dim Insercion As New OracleCommand
         Dim Registro As DataRow
+        Dim Trans As OracleTransaction
 
         Try
-            adaptador.Fill(DataSet, "PAIS_ORIGEN")
-            Registro = DataSet.Tables("PAIS_ORIGEN").NewRow
+            adaptador.Fill(DS_Frecuencia, "ENTIDAD_CAB")
+            Registro = DS_Frecuencia.Tables("ENTIDAD_CAB").NewRow
 
-            Registro("ID_PAIS_ORIGEN") = 10
-            Registro("NOMBRE") = UCase(pais)
+            Registro("ID_ENTIDAD_CAB") = ""
+            Registro("NOMBRE_ENT") = UCase(Animal)
+            Select Case UCase(Clasificacion)
+                Case "MAMIFERO"
+                    Registro("RELA_PADRE_ENT") = 1
 
-            DataSet.Tables("PAIS_ORIGEN").Rows.Add(Registro)
+                Case "REPTIL"
+                    Registro("RELA_PADRE_ENT") = 2
 
-            Insercion.CommandText = "INSERT INTO PAIS_ORIGEN VALUES(:id,:elnombre)"
-            Insercion.Connection = conexcion
+                Case "ANFIBIO"
+                    Registro("RELA_PADRE_ENT") = 3
 
-            Insercion.Parameters.Add(New OracleParameter(":id", OracleDbType.Int32, 0, "ID_PAIS_ORIGEN"))
-            Insercion.Parameters.Add(New OracleParameter(":elnombre", OracleDbType.Varchar2, 0, "NOMBRE"))
+                Case "AVE"
+                    Registro("RELA_PADRE_ENT") = 4
+            End Select
+
+            Registro("NIVEL") = "ESPECIE"
+            Registro("SEXO") = UCase(Sexo)
+
+            DS_Frecuencia.Tables("ENTIDAD_CAB").Rows.Add(Registro)
+
+            Insercion.CommandText = "INSERT INTO ENTIDAD_CAB VALUES(:id,:nombre,:padre,:elnivel,:secso)"
+            Insercion.Connection = Conn
+
+            Insercion.Parameters.Add(New OracleParameter(":id", OracleDbType.Int32, 0, "ID_ENTIDAD_CAB"))
+            Insercion.Parameters.Add(New OracleParameter(":nombre", OracleDbType.Varchar2, 20, "NOMBRE_ENT"))
+            Insercion.Parameters.Add(New OracleParameter(":padre", OracleDbType.Int32, 0, "RELA_PADRE_ENT"))
+            Insercion.Parameters.Add(New OracleParameter(":elnivel", OracleDbType.Varchar2, 20, "NIVEL"))
+            Insercion.Parameters.Add(New OracleParameter(":secso", OracleDbType.Varchar2, 20, "SEXO"))
 
             adaptador.InsertCommand = Insercion
-            adaptador.Update(DataSet, "PAIS_ORIGEN")
+            adaptador.Update(DS_Frecuencia, "ENTIDAD_CAB")
+
+
+
         Catch ex As Exception
             MsgBox(ex.Message)
             Return False
