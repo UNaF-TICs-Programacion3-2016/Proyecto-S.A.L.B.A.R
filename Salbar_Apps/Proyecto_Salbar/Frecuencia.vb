@@ -1,9 +1,9 @@
 ﻿Imports System.IO
 
-Public MustInherit Class Frecuencia
-
+Public Class Frecuencia
     ''La idea de esta clase es no heredarla ni instanciarla,
     ''sino solo llamarla por sus funciones compartidas, como por ejemplo la clase "Math".
+
     ''' <summary>
     ''' Estructura para almanecar todos los datos de un archivo WAV.
     ''' </summary>
@@ -31,7 +31,7 @@ Public MustInherit Class Frecuencia
     ''' </summary>
     ''' <param name="Archivo">Se requiere un OpenFileDialog con el directorio del Archivo.</param>
     ''' <returns></returns>
-    Public Shared Function Obtener_Matriz_de_Frecuencia(Archivo As OpenFileDialog)
+    Public Function Obtener_Matriz_de_Frecuencia(Archivo As OpenFileDialog)
         Dim Temp As New ArrayList
 
         Try
@@ -67,7 +67,7 @@ Public MustInherit Class Frecuencia
     ''' <param name="Frecuencia_en_Bruto">Se requiere una Matriz de Frecuencia en Bruto obtenida de la funcion "Obtener_Matriz_de_Frencuencia".</param>
     '''<param name="Limite">Se requiere la reprensacion numerica de elementos que forman 1 segundo de audio para poder utilizarla como limite.</param>
     ''' <returns></returns>
-    Public Shared Function Obtener_Matriz_Promedio(Frecuencia_en_Bruto As ArrayList, Limite As Integer)
+    Public Function Obtener_Matriz_Promedio(Frecuencia_en_Bruto As ArrayList, Limite As Integer)
         Dim Limite_Actual As Integer = Limite
         Dim Temp(Frecuencia_en_Bruto.Count / Limite) As Integer
         Dim i, j As Integer
@@ -94,7 +94,7 @@ Public MustInherit Class Frecuencia
     ''' <param name="Frecuencia_BD">Se requiere de una Matriz Frecuencia provenida de la base de datos.</param>
     ''' <param name="Frecuencia_A_Comparar">Se requiere la matriz de la frencuencia Promedio que se desea comparar.</param>
     ''' <returns></returns>
-    Public Shared Function Comparar_Frecuencias(Frecuencia_BD() As Integer, Frecuencia_A_Comparar() As Integer)
+    Public Function Comparar_Frecuencias(Frecuencia_BD() As Integer, Frecuencia_A_Comparar() As Integer)
         If Frecuencia_BD.Length > Frecuencia_A_Comparar.Length Then
             Return Comparando(Frecuencia_BD, Frecuencia_A_Comparar)
         Else
@@ -107,14 +107,11 @@ Public MustInherit Class Frecuencia
     ''' </summary>
     ''' <param name="Matriz_Comparacion_de_Frecuencias">Se requiere una Matriz proveniente de la funcion "Comparar_Frecuencias".</param>
     ''' <returns></returns>
-    Public Shared Function Promediar_y_Refinar_Resultado(Matriz_Comparacion_de_Frecuencias() As Integer)
-        Dim Temp As Integer
-
+    Public Function Promediar_y_Refinar_Resultado(Matriz_Comparacion_de_Frecuencias() As Integer) As Integer
         For Each Elemento As Integer In Matriz_Comparacion_de_Frecuencias
-            Temp += Elemento
+            Promediar_y_Refinar_Resultado += Elemento
         Next
-        Temp = Temp / Matriz_Comparacion_de_Frecuencias.Length
-        Return Temp
+        Promediar_y_Refinar_Resultado = Promediar_y_Refinar_Resultado / Matriz_Comparacion_de_Frecuencias.Length
     End Function
 
     ''' <summary>
@@ -122,39 +119,35 @@ Public MustInherit Class Frecuencia
     ''' </summary>
     ''' <param name="Archivo">Se requiere un OpenFileDialog con el directorio del Archivo.</param>
     ''' <returns></returns>
-    Public Shared Function Obtener_Datos_WAV(Archivo As OpenFileDialog)
-        Dim Temp As New Datos_WAV
+    Public Function Obtener_Datos_WAV(Archivo As OpenFileDialog) As Datos_WAV
         Dim MIFILESTREAM As FileStream = New FileStream(Archivo.FileName, FileMode.Open, FileAccess.Read)
         Dim LECTOR As BinaryReader = New BinaryReader(MIFILESTREAM)
 
-        Temp.CHUNKID = LECTOR.ReadBytes(4)
-        Temp.STRCHUNKID = System.Text.Encoding.ASCII.GetString(Temp.CHUNKID)
-        Temp.CHUNKSIZE = LECTOR.ReadInt32() + 8
-        Temp.FORMAT = LECTOR.ReadBytes(4)
-        Temp.STRFORMAT = System.Text.Encoding.ASCII.GetString(Temp.FORMAT)
-        Temp.SUBCHUNK1ID = LECTOR.ReadBytes(4)
-        Temp.STRSUBCHUNK1ID = System.Text.Encoding.ASCII.GetString(Temp.SUBCHUNK1ID)
-        Temp.SUBCHUNK1SIZE = LECTOR.ReadInt32()
-        Temp.AUDIOFORMAT = LECTOR.ReadInt16()
-        Temp.NUMCHANNELS = LECTOR.ReadInt16()
-        Temp.SAMPLERATE = LECTOR.ReadInt32()
-        Temp.BYTERATE = LECTOR.ReadInt32()
-        Temp.BLOCKALIGN = LECTOR.ReadInt16()
-        Temp.BITPERSAMPLE = LECTOR.ReadInt16()
-        Temp.SUBCHUNK2ID = LECTOR.ReadBytes(4)
-        Temp.STRSUBCHUNK2ID = System.Text.Encoding.ASCII.GetString(Temp.SUBCHUNK2ID)
-        Temp.SUBCHUNK2SIZE = LECTOR.ReadInt32()
-
-        Return Temp
+        Obtener_Datos_WAV.CHUNKID = LECTOR.ReadBytes(4)
+        Obtener_Datos_WAV.STRCHUNKID = System.Text.Encoding.ASCII.GetString(Obtener_Datos_WAV.CHUNKID)
+        Obtener_Datos_WAV.CHUNKSIZE = LECTOR.ReadInt32() + 8
+        Obtener_Datos_WAV.FORMAT = LECTOR.ReadBytes(4)
+        Obtener_Datos_WAV.STRFORMAT = System.Text.Encoding.ASCII.GetString(Obtener_Datos_WAV.FORMAT)
+        Obtener_Datos_WAV.SUBCHUNK1ID = LECTOR.ReadBytes(4)
+        Obtener_Datos_WAV.STRSUBCHUNK1ID = System.Text.Encoding.ASCII.GetString(Obtener_Datos_WAV.SUBCHUNK1ID)
+        Obtener_Datos_WAV.SUBCHUNK1SIZE = LECTOR.ReadInt32()
+        Obtener_Datos_WAV.AUDIOFORMAT = LECTOR.ReadInt16()
+        Obtener_Datos_WAV.NUMCHANNELS = LECTOR.ReadInt16()
+        Obtener_Datos_WAV.SAMPLERATE = LECTOR.ReadInt32()
+        Obtener_Datos_WAV.BYTERATE = LECTOR.ReadInt32()
+        Obtener_Datos_WAV.BLOCKALIGN = LECTOR.ReadInt16()
+        Obtener_Datos_WAV.BITPERSAMPLE = LECTOR.ReadInt16()
+        Obtener_Datos_WAV.SUBCHUNK2ID = LECTOR.ReadBytes(4)
+        Obtener_Datos_WAV.STRSUBCHUNK2ID = System.Text.Encoding.ASCII.GetString(Obtener_Datos_WAV.SUBCHUNK2ID)
+        Obtener_Datos_WAV.SUBCHUNK2SIZE = LECTOR.ReadInt32()
     End Function
 
-
-    Private Shared Function Comparando(M_Mayor() As Integer, M_Menor() As Integer)
+    Private Function Comparando(M_Mayor() As Integer, M_Menor() As Integer)
         Dim Temp(M_Menor.Length) As Integer
         Dim i, j As Integer
 
         For i = 0 To M_Menor.Length
-            Temp(i) = M_Mayor(i) - M_Menor(i)
+            Temp(i) = Math.Abs(M_Mayor(i) - M_Menor(i))
         Next
 
         Return Temp
