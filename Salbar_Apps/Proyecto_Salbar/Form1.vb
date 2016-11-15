@@ -1,7 +1,20 @@
 ﻿Public Class Form1
+    Public oFrecuencia As New Frecuencia
+    Public oConexion As New Conexion
+
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        MsgBox("probando la sincronizacion con el repositorio")
-        MsgBox("pueba exitosa")
+        'DataGridView1.DataSource = oConexion.Consultar_en_la_BD("MAMIFERO")
+        'If oConexion.Insertar_un_Registro("PERRO", "ELEMENTO", "MASCULINO") = True Then
+        '    MsgBox("EXITO AL INSERTAR REGISTRO")
+        'Else
+        '    MsgBox("ERROR AL INSERTAR REGISTRO")
+        'End If
+
+        If oConexion.Insertar_en_mi_tabla("MEXICO") = True Then
+            MsgBox("EXITO AL INSERTAR REGISTRO")
+        Else
+            MsgBox("ERROR AL INSERTAR REGISTRO")
+        End If
     End Sub
 
     '' Suponiendo que ya tenemos la matriz donde se aloja todos los valores para cada milisegundo
@@ -17,18 +30,18 @@
 
         Objeto.FileName = "C:/Damas Gratis - El Humito de mi Fasito.wav"
 
-        Datos_de_Objeto = Frecuencia.Obtener_Datos_WAV(Objeto)
+        Datos_de_Objeto = oFrecuencia.Obtener_Datos_WAV(Objeto)
 
-        Matriz_Bruta = Frecuencia.Obtener_Matriz_de_Frecuencia(Objeto)
+        Matriz_Bruta = oFrecuencia.Obtener_Matriz_de_Frecuencia(Objeto)
 
-        Matriz_Refinada = Frecuencia.Obtener_Matriz_Promedio(Matriz_Bruta, 10000)
-        Matriz_BD = Frecuencia.Obtener_Matriz_Promedio(Matriz_Bruta, 7000) 'supongamos que viene de la base de datos
+        Matriz_Refinada = oFrecuencia.Obtener_Matriz_Promedio(Matriz_Bruta, 10000)
+        Matriz_BD = oFrecuencia.Obtener_Matriz_Promedio(Matriz_Bruta, 7000) 'supongamos que viene de la base de datos
 
-        Matriz_Comparacion = Frecuencia.Comparar_Frecuencias(Matriz_Refinada, Matriz_Refinada)
+        Matriz_Comparacion = oFrecuencia.Comparar_Frecuencias(Matriz_Refinada, Matriz_Refinada)
 
-        Resultado_final = Frecuencia.Promediar_y_Refinar_Resultado(Matriz_Comparacion)
+        Resultado_final = oFrecuencia.Promediar_y_Refinar_Resultado(Matriz_Comparacion)
 
-        Tabla_De_la_BD = Conexion.Consultar_en_la_BD("perro")
+        Tabla_De_la_BD = oConexion.Consultar_en_la_BD("perro")
 
     End Sub
 End Class
