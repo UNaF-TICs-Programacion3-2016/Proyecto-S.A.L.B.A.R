@@ -10,19 +10,17 @@ Public Class Conexion
     Public Function Consultar_en_la_BD(Dato As String) As DataTable
         Select Case UCase(Dato)
             Case = "ANIMALES"
-                Return Consultando("select id_entidad_cab, nombre_ent from entidad_Cab where nivel = animal", "entidad_cab")
+                Return Consultando("select id_entidad_cab, nombre_ent from entidad_Cab where nivel = especie", "entidad_cab")
 
             Case = "CATEGORIAS"
                 Return Consultando("select id_entidad_cab, nombre_ent from entidad_cab where nivel = categoria", "entidad_cab")
 
             Case = "SONIDOS"
-                Return Consultando("select * from Clasificacion_Sonido", "sonido")
-
-            Case = "ESTACIONES DEL AÑO"
-                Return Consultando("select nombre_esta from estacion_del_anio", "estacion_del_anio")
+                Return Consultando("select * from descripcion_Sonido", "descripcion_sonido")
 
             Case = "PAISES"
                 Return Consultando("select ", "")
+
             Case Else
                 Return Consultando("Select * from entidad_cab where nombre_ent = " + UCase(Dato), "entidad_cab")
         End Select
