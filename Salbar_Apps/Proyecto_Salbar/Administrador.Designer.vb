@@ -72,7 +72,7 @@ Partial Class Administrador
         'ComboBox4
         '
         Me.ComboBox4.FormattingEnabled = True
-        Me.ComboBox4.Location = New System.Drawing.Point(235, 94)
+        Me.ComboBox4.Location = New System.Drawing.Point(222, 94)
         Me.ComboBox4.Name = "ComboBox4"
         Me.ComboBox4.Size = New System.Drawing.Size(121, 21)
         Me.ComboBox4.TabIndex = 4
@@ -88,7 +88,7 @@ Partial Class Administrador
         'ComboBox6
         '
         Me.ComboBox6.FormattingEnabled = True
-        Me.ComboBox6.Location = New System.Drawing.Point(235, 36)
+        Me.ComboBox6.Location = New System.Drawing.Point(222, 36)
         Me.ComboBox6.Name = "ComboBox6"
         Me.ComboBox6.Size = New System.Drawing.Size(121, 21)
         Me.ComboBox6.TabIndex = 6
@@ -123,7 +123,7 @@ Partial Class Administrador
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(232, 78)
+        Me.Label4.Location = New System.Drawing.Point(219, 79)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(111, 13)
         Me.Label4.TabIndex = 10

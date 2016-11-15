@@ -38,6 +38,7 @@ Partial Class Agregar
         Me.BtnCancelar = New System.Windows.Forms.Button()
         Me.miip = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -124,9 +125,10 @@ Partial Class Agregar
         '
         'DateTimePicker1
         '
+        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.DateTimePicker1.Location = New System.Drawing.Point(475, 260)
         Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(200, 20)
+        Me.DateTimePicker1.Size = New System.Drawing.Size(97, 20)
         Me.DateTimePicker1.TabIndex = 9
         '
         'WebBrowser1
@@ -178,6 +180,10 @@ Partial Class Agregar
         Me.PictureBox1.TabIndex = 8
         Me.PictureBox1.TabStop = False
         '
+        'OpenFileDialog1
+        '
+        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
+        '
         'Agregar
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -224,4 +230,5 @@ Partial Class Agregar
     Friend WithEvents BtnConfirmar As Button
     Friend WithEvents BtnCancelar As Button
     Friend WithEvents miip As Label
+    Friend WithEvents OpenFileDialog1 As OpenFileDialog
 End Class

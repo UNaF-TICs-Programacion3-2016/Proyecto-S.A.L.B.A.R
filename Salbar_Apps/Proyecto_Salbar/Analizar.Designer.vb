@@ -25,7 +25,6 @@ Partial Class Analizar
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.BtnAceptar = New System.Windows.Forms.Button()
         Me.BtnCancelar = New System.Windows.Forms.Button()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -64,16 +63,6 @@ Partial Class Analizar
         Me.PictureBox1.Size = New System.Drawing.Size(475, 143)
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
-        '
-        'BtnAceptar
-        '
-        Me.BtnAceptar.BackColor = System.Drawing.Color.Lime
-        Me.BtnAceptar.Location = New System.Drawing.Point(312, 417)
-        Me.BtnAceptar.Name = "BtnAceptar"
-        Me.BtnAceptar.Size = New System.Drawing.Size(75, 23)
-        Me.BtnAceptar.TabIndex = 3
-        Me.BtnAceptar.Text = "Aceptar"
-        Me.BtnAceptar.UseVisualStyleBackColor = False
         '
         'BtnCancelar
         '
@@ -124,12 +113,13 @@ Partial Class Analizar
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(414, 417)
+        Me.Button1.BackColor = System.Drawing.Color.Lime
+        Me.Button1.Location = New System.Drawing.Point(330, 417)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
         Me.Button1.TabIndex = 9
-        Me.Button1.Text = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.Button1.Text = "Analizar"
+        Me.Button1.UseVisualStyleBackColor = False
         '
         'Analizar
         '
@@ -142,7 +132,6 @@ Partial Class Analizar
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.BtnCancelar)
-        Me.Controls.Add(Me.BtnAceptar)
         Me.Controls.Add(Me.PictureBox3)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.PictureBox1)
@@ -159,7 +148,6 @@ Partial Class Analizar
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents PictureBox3 As PictureBox
-    Friend WithEvents BtnAceptar As Button
     Friend WithEvents BtnCancelar As Button
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents Label1 As Label

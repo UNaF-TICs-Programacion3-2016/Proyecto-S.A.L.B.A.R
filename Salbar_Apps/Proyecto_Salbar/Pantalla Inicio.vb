@@ -14,4 +14,8 @@ Public Class PInicio
     Private Sub Button2_Click_1(sender As Object, e As EventArgs) Handles Button2.Click
         Administrador.Show()
     End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Analizar.Show()
+    End Sub
 End Class
