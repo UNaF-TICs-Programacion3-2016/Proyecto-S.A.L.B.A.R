@@ -19,18 +19,29 @@ Public Class Conexion
                 Return Consultando("select * from descripcion_Sonido", "descripcion_sonido")
 
             Case = "PAISES"
-                Return Consultando("select ", "")
+                Return Consultando("select id_ubicacion, descripcion from ubicacion where nivel = pais", "ubicacion")
+
+            Case = "REGIONES"
+                Return Consultando("select id_ubicacion, descripcion from ubicacion where nivel = region", "ubicacion")
+
+            Case = "CIUDADES"
+                Return Consultando("select id_ubicacion, descripcion from ubicacion where nivel = ciudad", "ubicacion")
 
             Case Else
                 Return Consultando("Select * from entidad_cab where nombre_ent = " + UCase(Dato), "entidad_cab")
         End Select
     End Function
 
-    Public Function Consultar_en_la_BD(Entidad As String, Filtro As String) As DataTable 'categotia, especie genero, lugar fecha y hora
+    Public Function Consultar_en_la_BD(Entidad As String, Filtro As String, Dato As String) As DataTable 'categotia, especie genero, lugar fecha y hora
+        Dim Temp As String = "select * from entidad_cab where nombre_ent =" + UCase(Entidad)
         Select Case UCase(Filtro)
-            Case = ""
+            Case = "SEXO"
+                Return Consultando(Temp + "and sexo = " + UCase(Dato), "entidad_cab")
+
+            Case = "CATEGORIA"
+                Return Consultando(Temp + "and nivel = " + UCase(Dato), "entidad_cab")
+
         End Select
-        'Return Consultando("SELECT * FROM ENTIDAD_CAB WHERE ")
     End Function
 
 
