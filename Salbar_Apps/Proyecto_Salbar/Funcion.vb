@@ -1,9 +1,9 @@
 ﻿Imports System.IO
 
 Public MustInherit Class Frecuencia
+
     ''La idea de esta clase es no heredarla ni instanciarla,
     ''sino solo llamarla por sus funciones compartidas, como por ejemplo la clase "Math".
-
     ''' <summary>
     ''' Estructura para almanecar todos los datos de un archivo WAV.
     ''' </summary>

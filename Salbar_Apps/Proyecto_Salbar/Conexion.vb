@@ -2,6 +2,11 @@
 Imports Oracle.DataAccess.Types
 
 Public MustInherit Class Conexion
+
+
+
+
+
     Public Shared Function Consultar_en_la_BD(Animal As String) As DataTable
         Dim Conn As New OracleConnection("Data Source = localhost;User id = SALBAR;Password = salbar")
         Dim DS_Frecuencia As New DataSet

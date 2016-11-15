@@ -1,7 +1,7 @@
 ﻿Public Class Form1
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         MsgBox("probando la sincronizacion con el repositorio")
-        MsgBox("pueba exitosa")
+        MsgBox("pueba exitosa" + "TE AMO SEBA, SOS EL MEJOR. ATTE: COSME")
     End Sub
 
     '' Suponiendo que ya tenemos la matriz donde se aloja todos los valores para cada milisegundo
