@@ -39,6 +39,9 @@ Partial Class Agregar
         Me.miip = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -126,7 +129,7 @@ Partial Class Agregar
         'DateTimePicker1
         '
         Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker1.Location = New System.Drawing.Point(475, 260)
+        Me.DateTimePicker1.Location = New System.Drawing.Point(475, 252)
         Me.DateTimePicker1.Name = "DateTimePicker1"
         Me.DateTimePicker1.Size = New System.Drawing.Size(97, 20)
         Me.DateTimePicker1.TabIndex = 9
@@ -142,7 +145,7 @@ Partial Class Agregar
         'BtnConfirmar
         '
         Me.BtnConfirmar.BackColor = System.Drawing.Color.Lime
-        Me.BtnConfirmar.Location = New System.Drawing.Point(478, 391)
+        Me.BtnConfirmar.Location = New System.Drawing.Point(475, 453)
         Me.BtnConfirmar.Name = "BtnConfirmar"
         Me.BtnConfirmar.Size = New System.Drawing.Size(75, 23)
         Me.BtnConfirmar.TabIndex = 11
@@ -152,7 +155,7 @@ Partial Class Agregar
         'BtnCancelar
         '
         Me.BtnCancelar.BackColor = System.Drawing.Color.Red
-        Me.BtnCancelar.Location = New System.Drawing.Point(601, 391)
+        Me.BtnCancelar.Location = New System.Drawing.Point(740, 453)
         Me.BtnCancelar.Name = "BtnCancelar"
         Me.BtnCancelar.Size = New System.Drawing.Size(75, 23)
         Me.BtnCancelar.TabIndex = 12
@@ -163,7 +166,7 @@ Partial Class Agregar
         '
         Me.miip.AutoSize = True
         Me.miip.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.miip.Location = New System.Drawing.Point(471, 326)
+        Me.miip.Location = New System.Drawing.Point(474, 315)
         Me.miip.Name = "miip"
         Me.miip.Size = New System.Drawing.Size(135, 24)
         Me.miip.TabIndex = 13
@@ -184,6 +187,36 @@ Partial Class Agregar
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(640, 315)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(135, 24)
+        Me.Label4.TabIndex = 14
+        Me.Label4.Text = "Coordenadas"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(640, 350)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(135, 24)
+        Me.Label5.TabIndex = 15
+        Me.Label5.Text = "Coordenadas"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(474, 350)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(135, 24)
+        Me.Label6.TabIndex = 16
+        Me.Label6.Text = "Coordenadas"
+        '
         'Agregar
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -191,6 +224,9 @@ Partial Class Agregar
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.BackgroundImage = Global.Proyecto_Salbar.My.Resources.Resources.background
         Me.ClientSize = New System.Drawing.Size(827, 488)
+        Me.Controls.Add(Me.Label6)
+        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.miip)
         Me.Controls.Add(Me.BtnCancelar)
         Me.Controls.Add(Me.BtnConfirmar)
@@ -231,4 +267,7 @@ Partial Class Agregar
     Friend WithEvents BtnCancelar As Button
     Friend WithEvents miip As Label
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Label6 As Label
 End Class
