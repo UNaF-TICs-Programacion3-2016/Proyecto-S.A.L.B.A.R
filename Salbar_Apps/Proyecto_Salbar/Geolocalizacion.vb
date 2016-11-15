@@ -106,5 +106,7 @@ Public Class Geolocalizacion
         End Try
 
     End Sub
+    Sub New()
+    End Sub
 
 End Class

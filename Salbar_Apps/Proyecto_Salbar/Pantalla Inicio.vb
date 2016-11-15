@@ -1,5 +1,6 @@
 ﻿
 Public Class PInicio
+    Friend Ip_Original As New Geolocalizacion
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
     End Sub
 
@@ -17,5 +18,7 @@ Public Class PInicio
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         Analizar.Show()
+        Pantalla_de_Cargavb.Close()
+
     End Sub
 End Class

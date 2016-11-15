@@ -36,12 +36,16 @@ Partial Class Agregar
         Me.WebBrowser1 = New System.Windows.Forms.WebBrowser()
         Me.BtnConfirmar = New System.Windows.Forms.Button()
         Me.BtnCancelar = New System.Windows.Forms.Button()
-        Me.miip = New System.Windows.Forms.Label()
+        Me.LblPais = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
+        Me.LblRegion = New System.Windows.Forms.Label()
+        Me.LblCoordenadas = New System.Windows.Forms.Label()
+        Me.LblCiudad = New System.Windows.Forms.Label()
+        Me.TxtPais = New System.Windows.Forms.TextBox()
+        Me.TxtRegion = New System.Windows.Forms.TextBox()
+        Me.TxtCiudad = New System.Windows.Forms.TextBox()
+        Me.TxtCoordenadas = New System.Windows.Forms.TextBox()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -162,15 +166,15 @@ Partial Class Agregar
         Me.BtnCancelar.Text = "Cancelar"
         Me.BtnCancelar.UseVisualStyleBackColor = False
         '
-        'miip
+        'LblPais
         '
-        Me.miip.AutoSize = True
-        Me.miip.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.miip.Location = New System.Drawing.Point(474, 315)
-        Me.miip.Name = "miip"
-        Me.miip.Size = New System.Drawing.Size(135, 24)
-        Me.miip.TabIndex = 13
-        Me.miip.Text = "Coordenadas"
+        Me.LblPais.AutoSize = True
+        Me.LblPais.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblPais.Location = New System.Drawing.Point(474, 289)
+        Me.LblPais.Name = "LblPais"
+        Me.LblPais.Size = New System.Drawing.Size(55, 24)
+        Me.LblPais.TabIndex = 13
+        Me.LblPais.Text = "Pais:"
         '
         'PictureBox1
         '
@@ -187,35 +191,67 @@ Partial Class Agregar
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         '
-        'Label4
+        'LblRegion
         '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(640, 315)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(135, 24)
-        Me.Label4.TabIndex = 14
-        Me.Label4.Text = "Coordenadas"
+        Me.LblRegion.AutoSize = True
+        Me.LblRegion.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblRegion.Location = New System.Drawing.Point(474, 321)
+        Me.LblRegion.Name = "LblRegion"
+        Me.LblRegion.Size = New System.Drawing.Size(83, 24)
+        Me.LblRegion.TabIndex = 14
+        Me.LblRegion.Text = "Region:"
         '
-        'Label5
+        'LblCoordenadas
         '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(640, 350)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(135, 24)
-        Me.Label5.TabIndex = 15
-        Me.Label5.Text = "Coordenadas"
+        Me.LblCoordenadas.AutoSize = True
+        Me.LblCoordenadas.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblCoordenadas.Location = New System.Drawing.Point(471, 383)
+        Me.LblCoordenadas.Name = "LblCoordenadas"
+        Me.LblCoordenadas.Size = New System.Drawing.Size(141, 24)
+        Me.LblCoordenadas.TabIndex = 15
+        Me.LblCoordenadas.Text = "Coordenadas:"
         '
-        'Label6
+        'LblCiudad
         '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(474, 350)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(135, 24)
-        Me.Label6.TabIndex = 16
-        Me.Label6.Text = "Coordenadas"
+        Me.LblCiudad.AutoSize = True
+        Me.LblCiudad.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblCiudad.Location = New System.Drawing.Point(474, 352)
+        Me.LblCiudad.Name = "LblCiudad"
+        Me.LblCiudad.Size = New System.Drawing.Size(82, 24)
+        Me.LblCiudad.TabIndex = 16
+        Me.LblCiudad.Text = "Ciudad:"
+        '
+        'TxtPais
+        '
+        Me.TxtPais.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtPais.Location = New System.Drawing.Point(535, 286)
+        Me.TxtPais.Name = "TxtPais"
+        Me.TxtPais.Size = New System.Drawing.Size(320, 29)
+        Me.TxtPais.TabIndex = 17
+        '
+        'TxtRegion
+        '
+        Me.TxtRegion.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtRegion.Location = New System.Drawing.Point(562, 318)
+        Me.TxtRegion.Name = "TxtRegion"
+        Me.TxtRegion.Size = New System.Drawing.Size(293, 29)
+        Me.TxtRegion.TabIndex = 18
+        '
+        'TxtCiudad
+        '
+        Me.TxtCiudad.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtCiudad.Location = New System.Drawing.Point(562, 349)
+        Me.TxtCiudad.Name = "TxtCiudad"
+        Me.TxtCiudad.Size = New System.Drawing.Size(293, 29)
+        Me.TxtCiudad.TabIndex = 19
+        '
+        'TxtCoordenadas
+        '
+        Me.TxtCoordenadas.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtCoordenadas.Location = New System.Drawing.Point(618, 381)
+        Me.TxtCoordenadas.Name = "TxtCoordenadas"
+        Me.TxtCoordenadas.Size = New System.Drawing.Size(237, 29)
+        Me.TxtCoordenadas.TabIndex = 20
         '
         'Agregar
         '
@@ -223,11 +259,15 @@ Partial Class Agregar
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.BackgroundImage = Global.Proyecto_Salbar.My.Resources.Resources.background
-        Me.ClientSize = New System.Drawing.Size(827, 488)
-        Me.Controls.Add(Me.Label6)
-        Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.miip)
+        Me.ClientSize = New System.Drawing.Size(880, 498)
+        Me.Controls.Add(Me.TxtCoordenadas)
+        Me.Controls.Add(Me.TxtCiudad)
+        Me.Controls.Add(Me.TxtRegion)
+        Me.Controls.Add(Me.TxtPais)
+        Me.Controls.Add(Me.LblCiudad)
+        Me.Controls.Add(Me.LblCoordenadas)
+        Me.Controls.Add(Me.LblRegion)
+        Me.Controls.Add(Me.LblPais)
         Me.Controls.Add(Me.BtnCancelar)
         Me.Controls.Add(Me.BtnConfirmar)
         Me.Controls.Add(Me.WebBrowser1)
@@ -265,9 +305,13 @@ Partial Class Agregar
     Friend WithEvents WebBrowser1 As WebBrowser
     Friend WithEvents BtnConfirmar As Button
     Friend WithEvents BtnCancelar As Button
-    Friend WithEvents miip As Label
+    Friend WithEvents LblPais As Label
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
-    Friend WithEvents Label4 As Label
-    Friend WithEvents Label5 As Label
-    Friend WithEvents Label6 As Label
+    Friend WithEvents LblRegion As Label
+    Friend WithEvents LblCoordenadas As Label
+    Friend WithEvents LblCiudad As Label
+    Friend WithEvents TxtPais As TextBox
+    Friend WithEvents TxtRegion As TextBox
+    Friend WithEvents TxtCiudad As TextBox
+    Friend WithEvents TxtCoordenadas As TextBox
 End Class
