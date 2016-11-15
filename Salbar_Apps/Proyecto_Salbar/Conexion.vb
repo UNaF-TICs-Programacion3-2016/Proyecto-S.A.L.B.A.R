@@ -2,11 +2,38 @@
 Imports Oracle.DataAccess.Types
 
 Public Class Conexion
-    'Private Conn As New OracleConnection("Data Source = localhost;User id = SNGA089;Password = weightlifting;")
-    Private DS_Frecuencia As New DataSet
     Private Conn As New OracleConnection("Data Source = 192.168.2.111;User id = SALBAR;Password = salbar;")
-    Public Function Consultar_en_la_BD(Animal As String) As DataTable
-        Dim Adapter As New OracleDataAdapter("SELECT * FROM ENTIDAD_CAB", Conn)
+
+    Const hola As String = "Vaca"
+
+    Public Function Consultar_en_la_BD() As DataTable
+        Return Consultando("SELECT * FROM ENTIDAD_CAB")
+    End Function
+    Public Function Consultar_en_la_BD(Entidad As String) As DataTable
+        Select Case UCase(Entidad)
+            Case = "ANIMALES"
+                Return Consultando("SELECT NOMBRE_ENT FROM ENTIDAD_CAB")
+
+            Case = "CATEGORIAS"
+                Return Consultando("SELECT CATEGORIA FROM ENTIDAD_CAB")
+
+            Case = "NIVELES"
+                Return Consultando("SELECT NIVEL FROM ENTIDAD_CAB")
+
+        End Select
+        If UCase(Entidad) <> ("ANIMALES" Or "CATEGORIAS" Or "NIVELES") Then
+            Return Consultando("SELECT * FROM ENTIDAD_CAB WHERE NOMBRE_ENT = " + UCase(Entidad))
+        End If
+    End Function
+
+    Public Function Consultar_en_la_BD(Entidad As String, Filtro As String) As DataTable 'categotia, especie genero, lugar fecha y hora
+        Return Consultando("SELECT * FROM ENTIDAD_CAB WHERE ")
+    End Function
+
+
+    Private Function Consultando(Consulta As String) As DataTable
+        Dim DS_Frecuencia As New DataSet
+        Dim Adapter As New OracleDataAdapter(Consulta, Conn)
         Try
             Adapter.Fill(DS_Frecuencia, "ENTIDAD_CAB")
         Catch ex As Exception
@@ -15,6 +42,24 @@ Public Class Conexion
 
         Return DS_Frecuencia.Tables("ENTIDAD_CAB")
     End Function
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     Public Function Insertar_en_mi_tabla(pais As String) As Boolean
         Dim conexcion As New OracleConnection("Data Source = localhost;User id = SnGa089;Password = weightlifting;")
@@ -52,6 +97,7 @@ Public Class Conexion
 
 
     Public Function Insertar_un_Registro(animal As String, Nivel As String, Sexo As String) As Boolean
+        Dim DS_Frecuencia As New DataSet
         Dim Adapter As New OracleDataAdapter("SELECT * FROM ENTIDAD_CAB WHERE ID_ENTIDAD_CAB = -1", Conn)
         Dim InsertCmd As New OracleCommand
         Dim Registro As DataRow
