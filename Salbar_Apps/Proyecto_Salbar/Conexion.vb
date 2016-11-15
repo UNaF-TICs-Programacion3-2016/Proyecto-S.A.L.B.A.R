@@ -2,46 +2,50 @@
 Imports Oracle.DataAccess.Types
 
 Public Class Conexion
-    Private Conn As New OracleConnection("Data Source = 192.168.2.111;User id = SALBAR;Password = salbar;")
+    Private Conn As New OracleConnection("Data Source = 190.5.166.219;User id = SALBAR;Password = salbar;")
 
     Public Function Consultar_en_la_BD() As DataTable
-        Return Consultando("SELECT * FROM ENTIDAD_CAB")
+        Return Consultando("select * from entidad_cab", "entidad_cab")
     End Function
-    Public Function Consultar_en_la_BD(Entidad As String) As DataTable
-        Select Case UCase(Entidad)
+    Public Function Consultar_en_la_BD(Dato As String) As DataTable
+        Select Case UCase(Dato)
             Case = "ANIMALES"
-                Return Consultando("SELECT NOMBRE_ENT FROM ENTIDAD_CAB")
+                Return Consultando("select id_entidad_cab, nombre_ent from entidad_Cab where nivel = animal", "entidad_cab")
 
             Case = "CATEGORIAS"
-                Return Consultando("SELECT CATEGORIA FROM ENTIDAD_CAB")
+                Return Consultando("select id_entidad_cab, nombre_ent from entidad_cab where nivel = categoria", "entidad_cab")
 
-            Case = "NIVELES"
-                Return Consultando("SELECT NIVEL FROM ENTIDAD_CAB")
+            Case = "SONIDOS"
+                Return Consultando("select * from Clasificacion_Sonido", "sonido")
 
+            Case = "ESTACIONES DEL AÑO"
+                Return Consultando("select nombre_esta from estacion_del_anio", "estacion_del_anio")
+
+            Case = "PAISES"
+                Return Consultando("select ", "")
+            Case Else
+                Return Consultando("Select * from entidad_cab where nombre_ent = " + UCase(Dato), "entidad_cab")
         End Select
-        If UCase(Entidad) <> ("ANIMALES" Or "CATEGORIAS" Or "NIVELES") Then
-            Return Consultando("SELECT * FROM ENTIDAD_CAB WHERE NOMBRE_ENT = " + UCase(Entidad))
-        End If
     End Function
 
     Public Function Consultar_en_la_BD(Entidad As String, Filtro As String) As DataTable 'categotia, especie genero, lugar fecha y hora
         Select Case UCase(Filtro)
             Case = ""
         End Select
-        Return Consultando("SELECT * FROM ENTIDAD_CAB WHERE ")
+        'Return Consultando("SELECT * FROM ENTIDAD_CAB WHERE ")
     End Function
 
 
-    Private Function Consultando(Consulta As String) As DataTable
+    Private Function Consultando(Consulta As String, Tabla As String) As DataTable
         Dim DS_Frecuencia As New DataSet
-        Dim Adapter As New OracleDataAdapter(Consulta, Conn)
+        Dim Adapter As New OracleDataAdapter(UCase(Consulta), Conn)
         Try
-            Adapter.Fill(DS_Frecuencia, "ENTIDAD_CAB")
+            Adapter.Fill(DS_Frecuencia, UCase(Tabla))
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
 
-        Return DS_Frecuencia.Tables("ENTIDAD_CAB")
+        Return DS_Frecuencia.Tables(UCase(Tabla))
     End Function
 
 

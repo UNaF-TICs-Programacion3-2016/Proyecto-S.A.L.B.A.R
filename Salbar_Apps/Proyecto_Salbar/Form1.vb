@@ -3,18 +3,7 @@
     Public oConexion As New Conexion
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'DataGridView1.DataSource = oConexion.Consultar_en_la_BD("MAMIFERO")
-        'If oConexion.Insertar_un_Registro("PERRO", "ELEMENTO", "MASCULINO") = True Then
-        '    MsgBox("EXITO AL INSERTAR REGISTRO")
-        'Else
-        '    MsgBox("ERROR AL INSERTAR REGISTRO")
-        'End If
-
-        If oConexion.Insertar_en_mi_tabla("MEXICO") = True Then
-            MsgBox("EXITO AL INSERTAR REGISTRO")
-        Else
-            MsgBox("ERROR AL INSERTAR REGISTRO")
-        End If
+        DataGridView1.DataSource = oConexion.Consultar_en_la_BD("categorias")
     End Sub
 
     '' Suponiendo que ya tenemos la matriz donde se aloja todos los valores para cada milisegundo
