@@ -1,9 +1,12 @@
-﻿Public Class Form1
+﻿Public Class Administrador
     Public oFrecuencia As New Frecuencia
     Public oConexion As New Conexion
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        DataGridView1.DataSource = oConexion.Obtener_Lista("categorias")
+        DataGridView1.DataSource = oConexion.Obtener_Lista("animal", 5)
+
+        'temp = oConexion.Agregar_Registro("OVEJA", "MAMIFERO", "MASCULINO", "APARIAMIENTO", matriz, "ARGENTINA", "FORMOSA", "FORMOSA", fecha, "VERANO")
+        'MsgBox(temp)
     End Sub
 
     '' Suponiendo que ya tenemos la matriz donde se aloja todos los valores para cada milisegundo
