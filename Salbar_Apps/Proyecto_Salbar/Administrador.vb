@@ -8,8 +8,11 @@
         CmbEstaciones.Items.Add("PRIMAVERA")
     End Sub
 
-    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CmbEspecie.SelectedIndexChanged, CmbSexo.SelectedIndexChanged, CmbSonido.SelectedIndexChanged,
+    Private Sub CmbEspecie_SelectedIndexChanged(sender As Object, e As EventArgs) _
+        Handles CmbEspecie.SelectedIndexChanged, CmbSexo.SelectedIndexChanged,
+                CmbSonido.SelectedIndexChanged, CmbEstaciones.SelectedIndexChanged,
+                CmbPais.SelectedIndexChanged, CmbRegion.SelectedIndexChanged, CmbCiudad.SelectedIndexChanged
 
-
+        MsgBox("hola")
     End Sub
 End Class
