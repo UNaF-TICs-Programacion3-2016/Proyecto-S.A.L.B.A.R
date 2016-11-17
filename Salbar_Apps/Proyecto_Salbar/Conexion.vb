@@ -3,15 +3,14 @@ Imports Oracle.DataAccess.Types
 
 Public Class Conexion
     Private Conn As New OracleConnection("Data Source = 192.168.2.111;User id = SALBAR;Password = salbar;")
-    Private Principio As String = "select id_sonido, tipo_son, nombre_esta, fecha, hora, rela_sonido 
-                              from entidad_cab, sonido, descripcion_son, estacion_del_anio, fechahora, detalle_son 
-                              where nombre_ent = "
-
-    Private Final As String = " and id_entidad_cab = rela_enti_son
-                                  and id_desc_son = rela_descripcion_son
-                                  and id_esta_det = rela_esta_det
-                                  and id_fechahora = rela_fhora
-                                  id_sonido = rela_sonido"
+    Private Sentencia As String = "select id_sonido, nombre_ent, tipo_son, fecha, hora, nombre_esta, descripcion, frecuencia 
+                                    from sonido,DESCRIPCION_SON, ESTACION_DEL_ANIO, ENTIDAD_CAB, detalle_son, fechahora, ubicacion, sonid_ubic 
+                                    where sonido.RELA_DESCRIPCION_SON = DESCRIPCION_SON.ID_DESC_SON
+                                    and rela_esta_det = ESTACION_DEL_ANIO.ID_ESTA_DET
+                                    and rela_enti_son = ENTIDAD_CAB.ID_ENTIDAD_CAB
+                                    and sonido.RELA_FHORA = fechahora.ID_FECHAHORA
+                                    and rela_sonido = id_sonido
+                                    and rela_soni = id_sonido and rela_ubic = id_ubicacion "
 
     ''' <summary>
     ''' Permite obtener todos los registros de una determinada tabla.
@@ -22,48 +21,37 @@ Public Class Conexion
         Return Consultando("select * from " + UCase(Tabla), UCase(Tabla))
     End Function
     ''' <summary>
-    ''' Permite obtener una lista determinada de registro a partir del un dato espesifico. Recomendada para cargar Combobox's.
+    ''' Permite obtener una lista determinada de registros a partir de un conjunto especifico. Recomendada para cargar Combobox's.
     ''' </summary>
-    ''' <param name="Dato">Se requiere un dato para extraer.</param>
+    ''' <param name="Conjunto">Se requiere el conjunto de elementos a extraer.</param>
     ''' <returns></returns>
-    Public Function Obtener_Lista(Dato As String) As DataTable
-        Select Case UCase(Dato)
-            Case = "ANIMALES"
+    Public Function Obtener_Lista(Conjunto As String) As DataTable
+        Select Case UCase(Conjunto)
+            Case = "ANIMAL"
                 Return Consultando("select id_entidad_cab, nombre_ent from entidad_cab where nivel = 'especie'", "entidad_cab")
 
-            Case = "CATEGORIAS"
+            Case = "CATEGORIA"
                 Return Consultando("select id_entidad_cab, nombre_ent from entidad_cab where nivel = 'categoria'", "entidad_cab")
 
-            Case = "SONIDOS"
+            Case = "SONIDO"
                 Return Consultando("select * from descripcion_Son", "descripcion_son")
         End Select
     End Function
 
     ''' <summary>
-    ''' Permite Obtener una lista de elementos que pertenece a un grupo. Recomendada para Filtros.
+    ''' Permite Obtener todos los registros relacionados a un elemento que pertenece a un conjunto. Recomendada para Filtros.
     ''' </summary>
-    ''' <param name="Tipo">Se requiere un tipo de conjunto de elementos. Ej: Pais.</param>
-    ''' <param name="Dato">Se requiere el nombre del conjunto elegido. EJ: Argentina.</param>
+    ''' <param name="Conjunto">Se requiere un tipo de conjunto de elementos. Ej: Pais.</param>
+    ''' <param name="Elemento">Se requiere el nombre de un elemento a extraer. EJ: Argentina.</param>
     ''' <returns></returns>
     ''' 
-    Public Function Obtener_Lista(Tipo As String, Dato As Integer) As DataTable
-        Select Case UCase(Tipo)
+    Public Function Obtener_Lista(Conjunto As String, Elemento As String) As DataTable
+        Select Case UCase(Conjunto)
             Case = "ANIMAL"
-                Return Consultando("select id_sonido, nombre_ent, tipo_son, fecha, hora, nombre_esta, descripcion, frecuencia 
-                                    from sonido,DESCRIPCION_SON, ESTACION_DEL_ANIO, ENTIDAD_CAB, detalle_son, fechahora, ubicacion, sonid_ubic 
-                                    where sonido.RELA_DESCRIPCION_SON = DESCRIPCION_SON.ID_DESC_SON
-                                    and rela_esta_det = ESTACION_DEL_ANIO.ID_ESTA_DET
-                                    and rela_enti_son = ENTIDAD_CAB.ID_ENTIDAD_CAB
-                                    and sonido.RELA_FHORA = fechahora.ID_FECHAHORA
-                                    and rela_sonido = id_sonido
-                                    and rela_soni = id_sonido and rela_ubic = id_ubicacion
-                                    and id_entidad_cab = " + UCase(Dato), "Sonido")
-
-
-                'Return Consultando("Select * from entidad_cab, sonido where nombre_ent = " + UCase(Dato) + "And rela_sonido = id_sonido", "sonido")
+                Return Consultando(Sentencia + "and nombre_ent = '" + UCase(Elemento) + "'", "Sonido")
 
             Case = "CATEGORIA"
-                Select Case UCase(Dato)
+                Select Case UCase(Elemento)
                     Case "MAMIFERO"
                         Return Consultando("select id_entidad_cab, nombre_ent from entidad_Cab where rela_padre_ent = 1", "entidad_cab")
 
@@ -78,16 +66,28 @@ Public Class Conexion
                 End Select
 
             Case = "SONIDO"
-                Return Consultando(Principio + UCase(Dato) + Final, "Clasificacion+Sonido")
+                Return Consultando(Sentencia + "and tipo_son = '" + UCase(Elemento) + "'", "Clasificacion+Sonido")
         End Select
     End Function
 
-    Public Function Obtener_Lista(Animal As String, Filtro As String, Dato As String) As DataTable
-        Select Case UCase(Filtro)
-            Case = "SEXO"
-                Return Consultando(Principio + UCase(Animal) + "And sexo = " + UCase(Dato) + Final, "sonido")
-            Case = "NIVEL"
-                Return Consultando(Principio + UCase(Animal) + "And nivel = " + UCase(Dato) + Final, "sonido")
+    ''' <summary>
+    ''' Permite Filtrar todos los registros relacionados a un elemento que pertenece a un conjunto y obtener registros especificos.
+    ''' </summary>
+    ''' <param name="Conjunto">Se requiere el conjunto el cual se obtendran los sonidos registrados en el.</param>
+    ''' <param name="Elemento">Se requiere el nombre del elemento del cual se capturaran los registros relacionados a el.</param>
+    ''' <param name="Filtro">Se rquiere un filtro para filtrar los registros encontrados. </param>
+    ''' <returns></returns>
+    Public Function Obtener_Lista(Conjunto As String, Elemento As String, Filtro As String) As DataTable
+        Select Case UCase(Conjunto)
+            Case "ANIMAL"
+                Return Consultando(Sentencia + "and nombre_ent = '" + UCase(Elemento) + "' And sexo = '" + UCase(Filtro) + "'", "sonido")
+
+            Case "CATEGORIA"
+                MsgBox("Actualmente no existen filtros para los elementos de este conjunto")
+                Exit Function
+            Case "SONIDO"
+                MsgBox("Actualmente no existen filtros para los elementos de este conjunto")
+                Exit Function
         End Select
     End Function
 
@@ -176,29 +176,5 @@ Public Class Conexion
         End Try
 
         Return True
-    End Function
-
-    Public Function Agregar_Registro_Online(Animal As String, Clasificacion As String, Sexo As String, Sonido_Tipo As String,
-                    M_Frecuencia() As Integer, Pais As String, Region As String, Ciudad As String, Fecha_de_Captura As DateTime, Estacion_del_año As String) As Boolean
-        Dim CMD As New OracleCommand()
-        Dim TXN As OracleTransaction
-        Dim NewID As Long
-
-        Try
-            Conn.Open()
-            TXN = Conn.BeginTransaction(IsolationLevel.ReadCommitted)
-            CMD.Connection = Conn
-            CMD.Transaction = TXN
-            With CMD
-                .CommandType = CommandType.StoredProcedure
-                .CommandText = "INSERT_REGISTRO"
-                .Parameters.Clear()
-
-                '.Parameters.Add(New OracleParameter(""))
-            End With
-        Catch ex As Exception
-
-        End Try
-
     End Function
 End Class
