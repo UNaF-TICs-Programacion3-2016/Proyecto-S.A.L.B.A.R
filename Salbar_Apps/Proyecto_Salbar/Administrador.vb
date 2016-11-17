@@ -3,7 +3,7 @@
     Public oConexion As New Conexion
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        DataGridView1.DataSource = oConexion.Obtener_Lista("animal", 5)
+        DataGridView1.DataSource = oConexion.Obtener_Lista("animal", "perro", "masculino")
 
         'temp = oConexion.Agregar_Registro("OVEJA", "MAMIFERO", "MASCULINO", "APARIAMIENTO", matriz, "ARGENTINA", "FORMOSA", "FORMOSA", fecha, "VERANO")
         'MsgBox(temp)
