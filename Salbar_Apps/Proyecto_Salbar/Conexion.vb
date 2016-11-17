@@ -2,7 +2,7 @@
 Imports Oracle.DataAccess.Types
 
 Public Class Conexion
-    Private Conn As New OracleConnection("Data Source = 192.168.2.111;User id = SALBAR;Password = salbar;")
+    Private Conn As New OracleConnection("Data Source = localhost;User id = SALBAR;Password = salbar;")
     Private Sentencia As String = "select id_sonido, nombre_ent, tipo_son, fecha, hora, nombre_esta, descripcion, frecuencia 
                                     from sonido,DESCRIPCION_SON, ESTACION_DEL_ANIO, ENTIDAD_CAB, detalle_son, fechahora, ubicacion, sonid_ubic 
                                     where sonido.RELA_DESCRIPCION_SON = DESCRIPCION_SON.ID_DESC_SON
