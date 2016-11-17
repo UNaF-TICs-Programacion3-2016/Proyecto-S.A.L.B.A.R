@@ -3,12 +3,11 @@ Imports Oracle.DataAccess.Types
 
 Public Class Conexion
     Private Conn As New OracleConnection("Data Source = 192.168.2.111;User id = SALBAR;Password = salbar;")
-    Private Sentencia As String = "select id_sonido, nombre_ent, tipo_son, fecha, hora, nombre_esta, descripcion, frecuencia 
-                                    from sonido,DESCRIPCION_SON, ESTACION_DEL_ANIO, ENTIDAD_CAB, detalle_son, fechahora, ubicacion, sonid_ubic 
+    Private Sentencia As String = "select id_sonido, nombre_ent, tipo_son, nombre_esta, descripcion, frecuencia 
+                                    from sonido,DESCRIPCION_SON, ESTACION_DEL_ANIO, ENTIDAD_CAB, detalle_son, ubicacion, sonid_ubic 
                                     where sonido.RELA_DESCRIPCION_SON = DESCRIPCION_SON.ID_DESC_SON
                                     and rela_esta_det = ESTACION_DEL_ANIO.ID_ESTA_DET
                                     and rela_enti_son = ENTIDAD_CAB.ID_ENTIDAD_CAB
-                                    and sonido.RELA_FHORA = fechahora.ID_FECHAHORA
                                     and rela_sonido = id_sonido
                                     and rela_soni = id_sonido and rela_ubic = id_ubicacion "
 
@@ -28,7 +27,7 @@ Public Class Conexion
     Public Function Obtener_Lista(Conjunto As String) As DataTable
         Select Case UCase(Conjunto)
             Case = "ANIMAL"
-                Return Consultando("select id_entidad_cab, nombre_ent from entidad_cab where nivel = 'especie'", "entidad_cab")
+                Return Consultando("select id_entidad_cab, nombre_ent, sexo from entidad_cab where nivel = 'especie'", "entidad_cab")
 
             Case = "CATEGORIA"
                 Return Consultando("select id_entidad_cab, nombre_ent from entidad_cab where nivel = 'categoria'", "entidad_cab")
@@ -48,7 +47,18 @@ Public Class Conexion
     Public Function Obtener_Lista(Conjunto As String, Elemento As String) As DataTable
         Select Case UCase(Conjunto)
             Case = "ANIMAL"
-                Return Consultando(Sentencia + "and nombre_ent = '" + UCase(Elemento) + "'", "Sonido")
+                Select Case UCase(Elemento)
+
+                    Case "MACHO"
+                        Return Consultando("select id_entidad_cab, nombre_ent from entidad_cab where nivel = 'especie' and sexo = 'macho'", "entidad_cab")
+
+                    Case "HEMBRA"
+                        Return Consultando("select id_entidad_cab, nombre_ent from entidad_cab where nivel = 'especie' and sexo = 'hembra'", "entidad_cab")
+
+                    Case Else
+                        Return Consultando(Sentencia + "and nombre_ent = '" + UCase(Elemento) + "'", "Sonido")
+
+                End Select
 
             Case = "CATEGORIA"
                 Select Case UCase(Elemento)
@@ -67,6 +77,7 @@ Public Class Conexion
 
             Case = "SONIDO"
                 Return Consultando(Sentencia + "and tipo_son = '" + UCase(Elemento) + "'", "Clasificacion+Sonido")
+
         End Select
     End Function
 
@@ -122,59 +133,52 @@ Public Class Conexion
         Return DS_Frecuencia.Tables(UCase(Tabla))
     End Function
 
-    Public Function Agregar_Registro(Animal As String, Clasificacion As String, Sexo As String, Sonido_Tipo As String,
-                    M_Frecuencia() As Integer, Pais As String, Region As String, Ciudad As String, Fecha_de_Captura As DateTime, Estacion_del_año As String) As Boolean
-        Dim adaptador As New OracleDataAdapter("SELECT * FROM ENTIDAD_CAB", Conn)
-        Dim DS_Frecuencia As New DataSet
-        Dim Insercion As New OracleCommand
-        Dim Registro As DataRow
-        Dim Trans As OracleTransaction
-
+    Public Function Insertar_Animal(Nombre As String, Categoria As String, Sexo As String) As Boolean
+        If Animal_registrado(Nombre, Categoria, Sexo) = True Then
+            Insertar_Animal = False
+            Exit Function
+        End If
+        Dim CMD As New OracleCommand
+        Dim Transaccion As OracleTransaction
+        Dim Ultimo_ID As Long
         Try
-            adaptador.Fill(DS_Frecuencia, "ENTIDAD_CAB")
-            Registro = DS_Frecuencia.Tables("ENTIDAD_CAB").NewRow
+            Conn.Open()
 
-            Registro("ID_ENTIDAD_CAB") = -1
-            Registro("NOMBRE_ENT") = UCase(Animal)
-            Select Case UCase(Clasificacion)
-                Case "MAMIFERO"
-                    Registro("RELA_PADRE_ENT") = 1
+            Transaccion = Conn.BeginTransaction(IsolationLevel.ReadCommitted)
+            CMD.Connection = Conn
+            CMD.Transaction = Transaccion
 
-                Case "REPTIL"
-                    Registro("RELA_PADRE_ENT") = 2
+            With CMD
+                .CommandType = CommandType.StoredProcedure
+                .CommandText = "INSERTAR_ANIMAL"
+                .Parameters.Clear()
 
-                Case "ANFIBIO"
-                    Registro("RELA_PADRE_ENT") = 3
+                .Parameters.Add(New OracleParameter("NOMBRE_ANIMAL", OracleDbType.NVarchar2) With {.Value = UCase(Nombre)})
+                .Parameters.Add(New OracleParameter("CATEGORIA", OracleDbType.NVarchar2) With {.Value = UCase(Categoria)})
+                .Parameters.Add(New OracleParameter("SEXO", OracleDbType.NVarchar2) With {.Value = Sexo})
+                .Parameters.Add(New OracleParameter("LAST_ID", OracleDbType.Int32, ParameterDirection.Output))
 
-                Case "AVE"
-                    Registro("RELA_PADRE_ENT") = 4
-            End Select
+                .ExecuteNonQuery()
 
-            Registro("NIVEL") = "ESPECIE"
-            Registro("SEXO") = UCase(Sexo)
-
-            DS_Frecuencia.Tables("ENTIDAD_CAB").Rows.Add(Registro)
-
-            Insercion.CommandText = "INSERT INTO ENTIDAD_CAB VALUES(:id,:nombre,:padre,:elnivel,:secso)"
-            Insercion.Connection = Conn
-
-            Insercion.Parameters.Add(New OracleParameter(":id", OracleDbType.Int64, 0, "ID_ENTIDAD_CAB"))
-            Insercion.Parameters.Add(New OracleParameter(":nombre", OracleDbType.Varchar2, 20, "NOMBRE_ENT"))
-            Insercion.Parameters.Add(New OracleParameter(":padre", OracleDbType.Int32, 0, "RELA_PADRE_ENT"))
-            Insercion.Parameters.Add(New OracleParameter(":elnivel", OracleDbType.Varchar2, 20, "NIVEL"))
-            Insercion.Parameters.Add(New OracleParameter(":secso", OracleDbType.Varchar2, 20, "SEXO"))
-
-            adaptador.InsertCommand = Insercion
-            adaptador.Update(DS_Frecuencia, "ENTIDAD_CAB")
-
-
+                MsgBox(.Parameters("LAST_ID").Value)
+                Ultimo_ID = Long.Parse(.Parameters("LAST_ID").Value.ToString)
+            End With
 
         Catch ex As Exception
             MsgBox(ex.Message)
-            Return False
-            Exit Function
         End Try
 
-        Return True
+    End Function
+
+    Private Function Animal_registrado(animal As String, categoria As String, sexo As String) As Boolean
+        Dim Temp As DataTable
+
+        Temp = Obtener_Lista("Animal", UCase(animal), UCase(sexo))
+
+        If Temp.Rows.Count = 0 Then
+            Return False
+        Else
+            Return True
+        End If
     End Function
 End Class
