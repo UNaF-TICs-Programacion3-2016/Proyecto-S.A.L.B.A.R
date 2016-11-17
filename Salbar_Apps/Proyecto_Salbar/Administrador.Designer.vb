@@ -23,10 +23,10 @@ Partial Class Administrador
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
+        Me.CmbEspecie = New System.Windows.Forms.ComboBox()
+        Me.CmbPais = New System.Windows.Forms.ComboBox()
         Me.CmbEstaciones = New System.Windows.Forms.ComboBox()
-        Me.ComboBox5 = New System.Windows.Forms.ComboBox()
+        Me.CmbSonido = New System.Windows.Forms.ComboBox()
         Me.CmbSexo = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -35,8 +35,8 @@ Partial Class Administrador
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
-        Me.ComboBox3 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox7 = New System.Windows.Forms.ComboBox()
+        Me.CmbRegion = New System.Windows.Forms.ComboBox()
+        Me.CmbCiudad = New System.Windows.Forms.ComboBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
@@ -53,21 +53,21 @@ Partial Class Administrador
         Me.DataGridView1.Size = New System.Drawing.Size(908, 382)
         Me.DataGridView1.TabIndex = 0
         '
-        'ComboBox1
+        'CmbEspecie
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(42, 36)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox1.TabIndex = 1
+        Me.CmbEspecie.FormattingEnabled = True
+        Me.CmbEspecie.Location = New System.Drawing.Point(42, 36)
+        Me.CmbEspecie.Name = "CmbEspecie"
+        Me.CmbEspecie.Size = New System.Drawing.Size(121, 21)
+        Me.CmbEspecie.TabIndex = 1
         '
-        'ComboBox2
+        'CmbPais
         '
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(406, 36)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox2.TabIndex = 2
+        Me.CmbPais.FormattingEnabled = True
+        Me.CmbPais.Location = New System.Drawing.Point(406, 36)
+        Me.CmbPais.Name = "CmbPais"
+        Me.CmbPais.Size = New System.Drawing.Size(121, 21)
+        Me.CmbPais.TabIndex = 2
         '
         'CmbEstaciones
         '
@@ -77,13 +77,13 @@ Partial Class Administrador
         Me.CmbEstaciones.Size = New System.Drawing.Size(121, 21)
         Me.CmbEstaciones.TabIndex = 4
         '
-        'ComboBox5
+        'CmbSonido
         '
-        Me.ComboBox5.FormattingEnabled = True
-        Me.ComboBox5.Location = New System.Drawing.Point(42, 94)
-        Me.ComboBox5.Name = "ComboBox5"
-        Me.ComboBox5.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox5.TabIndex = 5
+        Me.CmbSonido.FormattingEnabled = True
+        Me.CmbSonido.Location = New System.Drawing.Point(42, 94)
+        Me.CmbSonido.Name = "CmbSonido"
+        Me.CmbSonido.Size = New System.Drawing.Size(121, 21)
+        Me.CmbSonido.TabIndex = 5
         '
         'CmbSexo
         '
@@ -154,21 +154,21 @@ Partial Class Administrador
         Me.DateTimePicker1.Size = New System.Drawing.Size(195, 20)
         Me.DateTimePicker1.TabIndex = 13
         '
-        'ComboBox3
+        'CmbRegion
         '
-        Me.ComboBox3.FormattingEnabled = True
-        Me.ComboBox3.Location = New System.Drawing.Point(533, 36)
-        Me.ComboBox3.Name = "ComboBox3"
-        Me.ComboBox3.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox3.TabIndex = 14
+        Me.CmbRegion.FormattingEnabled = True
+        Me.CmbRegion.Location = New System.Drawing.Point(533, 36)
+        Me.CmbRegion.Name = "CmbRegion"
+        Me.CmbRegion.Size = New System.Drawing.Size(121, 21)
+        Me.CmbRegion.TabIndex = 14
         '
-        'ComboBox7
+        'CmbCiudad
         '
-        Me.ComboBox7.FormattingEnabled = True
-        Me.ComboBox7.Location = New System.Drawing.Point(660, 36)
-        Me.ComboBox7.Name = "ComboBox7"
-        Me.ComboBox7.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox7.TabIndex = 15
+        Me.CmbCiudad.FormattingEnabled = True
+        Me.CmbCiudad.Location = New System.Drawing.Point(660, 36)
+        Me.CmbCiudad.Name = "CmbCiudad"
+        Me.CmbCiudad.Size = New System.Drawing.Size(121, 21)
+        Me.CmbCiudad.TabIndex = 15
         '
         'Label8
         '
@@ -216,8 +216,8 @@ Partial Class Administrador
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.Label8)
-        Me.Controls.Add(Me.ComboBox7)
-        Me.Controls.Add(Me.ComboBox3)
+        Me.Controls.Add(Me.CmbCiudad)
+        Me.Controls.Add(Me.CmbRegion)
         Me.Controls.Add(Me.DateTimePicker1)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label5)
@@ -226,10 +226,10 @@ Partial Class Administrador
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.CmbSexo)
-        Me.Controls.Add(Me.ComboBox5)
+        Me.Controls.Add(Me.CmbSonido)
         Me.Controls.Add(Me.CmbEstaciones)
-        Me.Controls.Add(Me.ComboBox2)
-        Me.Controls.Add(Me.ComboBox1)
+        Me.Controls.Add(Me.CmbPais)
+        Me.Controls.Add(Me.CmbEspecie)
         Me.Controls.Add(Me.DataGridView1)
         Me.Name = "Administrador"
         Me.Text = "ADMINISTRADOR"
@@ -240,10 +240,10 @@ Partial Class Administrador
     End Sub
 
     Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents ComboBox1 As ComboBox
-    Friend WithEvents ComboBox2 As ComboBox
+    Friend WithEvents CmbEspecie As ComboBox
+    Friend WithEvents CmbPais As ComboBox
     Friend WithEvents CmbEstaciones As ComboBox
-    Friend WithEvents ComboBox5 As ComboBox
+    Friend WithEvents CmbSonido As ComboBox
     Friend WithEvents CmbSexo As ComboBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
@@ -252,8 +252,8 @@ Partial Class Administrador
     Friend WithEvents Label5 As Label
     Friend WithEvents Label6 As Label
     Friend WithEvents DateTimePicker1 As DateTimePicker
-    Friend WithEvents ComboBox3 As ComboBox
-    Friend WithEvents ComboBox7 As ComboBox
+    Friend WithEvents CmbRegion As ComboBox
+    Friend WithEvents CmbCiudad As ComboBox
     Friend WithEvents Label8 As Label
     Friend WithEvents Label9 As Label
     Friend WithEvents Button1 As Button
