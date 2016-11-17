@@ -24,11 +24,22 @@ Partial Class PInicio
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(PInicio))
         Me.TITULO = New System.Windows.Forms.Label()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.BtnAnalizar = New System.Windows.Forms.Button()
+        Me.BtnAdministrar = New System.Windows.Forms.Button()
         Me.BtnAgregar = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.BtnAdmin = New System.Windows.Forms.Button()
+        Me.BtnNormal = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.VentanaAcceso = New System.Windows.Forms.GroupBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.TxtUser = New System.Windows.Forms.TextBox()
+        Me.TxtPass = New System.Windows.Forms.TextBox()
+        Me.BtnAceptar = New System.Windows.Forms.Button()
+        Me.BtnCancelar = New System.Windows.Forms.Button()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.VentanaAcceso.SuspendLayout()
         Me.SuspendLayout()
         '
         'TITULO
@@ -44,29 +55,31 @@ Partial Class PInicio
         Me.TITULO.TabIndex = 0
         Me.TITULO.Text = "S.A.L.B.A.R."
         '
-        'Button3
+        'BtnAnalizar
         '
-        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Image = Global.Proyecto_Salbar.My.Resources.Resources.sine_waves_analysis_318_86275
-        Me.Button3.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button3.Location = New System.Drawing.Point(820, 404)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(151, 59)
-        Me.Button3.TabIndex = 7
-        Me.Button3.Text = "Analizar"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.BtnAnalizar.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnAnalizar.Image = Global.Proyecto_Salbar.My.Resources.Resources.sine_waves_analysis_318_86275
+        Me.BtnAnalizar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.BtnAnalizar.Location = New System.Drawing.Point(820, 404)
+        Me.BtnAnalizar.Name = "BtnAnalizar"
+        Me.BtnAnalizar.Size = New System.Drawing.Size(151, 59)
+        Me.BtnAnalizar.TabIndex = 7
+        Me.BtnAnalizar.Text = "Analizar"
+        Me.BtnAnalizar.UseVisualStyleBackColor = True
+        Me.BtnAnalizar.Visible = False
         '
-        'Button2
+        'BtnAdministrar
         '
-        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
-        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button2.Location = New System.Drawing.Point(591, 404)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(155, 59)
-        Me.Button2.TabIndex = 6
-        Me.Button2.Text = "Revisar Sonidos"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.BtnAdministrar.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnAdministrar.Image = CType(resources.GetObject("BtnAdministrar.Image"), System.Drawing.Image)
+        Me.BtnAdministrar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.BtnAdministrar.Location = New System.Drawing.Point(591, 404)
+        Me.BtnAdministrar.Name = "BtnAdministrar"
+        Me.BtnAdministrar.Size = New System.Drawing.Size(155, 59)
+        Me.BtnAdministrar.TabIndex = 6
+        Me.BtnAdministrar.Text = "Revisar Sonidos"
+        Me.BtnAdministrar.UseVisualStyleBackColor = True
+        Me.BtnAdministrar.Visible = False
         '
         'BtnAgregar
         '
@@ -79,6 +92,7 @@ Partial Class PInicio
         Me.BtnAgregar.TabIndex = 5
         Me.BtnAgregar.Text = "Nuevo Sonido"
         Me.BtnAgregar.UseVisualStyleBackColor = True
+        Me.BtnAgregar.Visible = False
         '
         'PictureBox1
         '
@@ -92,6 +106,108 @@ Partial Class PInicio
         Me.PictureBox1.TabIndex = 1
         Me.PictureBox1.TabStop = False
         '
+        'BtnAdmin
+        '
+        Me.BtnAdmin.Location = New System.Drawing.Point(493, 334)
+        Me.BtnAdmin.Name = "BtnAdmin"
+        Me.BtnAdmin.Size = New System.Drawing.Size(120, 23)
+        Me.BtnAdmin.TabIndex = 8
+        Me.BtnAdmin.Text = "ADMINISTRADOR"
+        Me.BtnAdmin.UseVisualStyleBackColor = True
+        '
+        'BtnNormal
+        '
+        Me.BtnNormal.Location = New System.Drawing.Point(695, 334)
+        Me.BtnNormal.Name = "BtnNormal"
+        Me.BtnNormal.Size = New System.Drawing.Size(114, 23)
+        Me.BtnNormal.TabIndex = 9
+        Me.BtnNormal.Text = "NORMAL"
+        Me.BtnNormal.UseVisualStyleBackColor = True
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(591, 290)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(159, 24)
+        Me.Label1.TabIndex = 10
+        Me.Label1.Text = "Tipo de Usuario"
+        '
+        'VentanaAcceso
+        '
+        Me.VentanaAcceso.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.VentanaAcceso.Controls.Add(Me.BtnCancelar)
+        Me.VentanaAcceso.Controls.Add(Me.BtnAceptar)
+        Me.VentanaAcceso.Controls.Add(Me.TxtPass)
+        Me.VentanaAcceso.Controls.Add(Me.TxtUser)
+        Me.VentanaAcceso.Controls.Add(Me.Label3)
+        Me.VentanaAcceso.Controls.Add(Me.Label2)
+        Me.VentanaAcceso.Location = New System.Drawing.Point(1081, 12)
+        Me.VentanaAcceso.Name = "VentanaAcceso"
+        Me.VentanaAcceso.Size = New System.Drawing.Size(301, 204)
+        Me.VentanaAcceso.TabIndex = 11
+        Me.VentanaAcceso.TabStop = False
+        Me.VentanaAcceso.Text = "Ventana de Acceso"
+        Me.VentanaAcceso.Visible = False
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(55, 65)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(63, 13)
+        Me.Label2.TabIndex = 0
+        Me.Label2.Text = "USUARIO"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(27, 121)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(91, 13)
+        Me.Label3.TabIndex = 1
+        Me.Label3.Text = "CONTRASEÑA"
+        '
+        'TxtUser
+        '
+        Me.TxtUser.Location = New System.Drawing.Point(124, 62)
+        Me.TxtUser.Name = "TxtUser"
+        Me.TxtUser.Size = New System.Drawing.Size(100, 20)
+        Me.TxtUser.TabIndex = 2
+        '
+        'TxtPass
+        '
+        Me.TxtPass.Location = New System.Drawing.Point(124, 118)
+        Me.TxtPass.Name = "TxtPass"
+        Me.TxtPass.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.TxtPass.Size = New System.Drawing.Size(100, 20)
+        Me.TxtPass.TabIndex = 3
+        '
+        'BtnAceptar
+        '
+        Me.BtnAceptar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.BtnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BtnAceptar.Location = New System.Drawing.Point(77, 161)
+        Me.BtnAceptar.Name = "BtnAceptar"
+        Me.BtnAceptar.Size = New System.Drawing.Size(75, 23)
+        Me.BtnAceptar.TabIndex = 5
+        Me.BtnAceptar.Text = "Aceptar"
+        Me.BtnAceptar.UseVisualStyleBackColor = True
+        '
+        'BtnCancelar
+        '
+        Me.BtnCancelar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.BtnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BtnCancelar.Location = New System.Drawing.Point(158, 161)
+        Me.BtnCancelar.Name = "BtnCancelar"
+        Me.BtnCancelar.Size = New System.Drawing.Size(75, 23)
+        Me.BtnCancelar.TabIndex = 6
+        Me.BtnCancelar.Text = "Cancelar"
+        Me.BtnCancelar.UseVisualStyleBackColor = True
+        '
         'PInicio
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -100,22 +216,39 @@ Partial Class PInicio
         Me.BackgroundImage = Global.Proyecto_Salbar.My.Resources.Resources.background
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1091, 475)
-        Me.Controls.Add(Me.Button3)
-        Me.Controls.Add(Me.Button2)
+        Me.Controls.Add(Me.BtnAnalizar)
+        Me.Controls.Add(Me.VentanaAcceso)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.BtnNormal)
+        Me.Controls.Add(Me.BtnAdmin)
+        Me.Controls.Add(Me.BtnAdministrar)
         Me.Controls.Add(Me.BtnAgregar)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.TITULO)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
         Me.Name = "PInicio"
-        Me.Text = "SALBAR - Pantalla Principal"
+        Me.Text = "Pantalla de Inicio - SALBAR"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.VentanaAcceso.ResumeLayout(False)
+        Me.VentanaAcceso.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents TITULO As Label
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents BtnAgregar As Button
-    Friend WithEvents Button2 As Button
-    Friend WithEvents Button3 As Button
+    Friend WithEvents BtnAdministrar As Button
+    Friend WithEvents BtnAnalizar As Button
+    Friend WithEvents BtnAdmin As Button
+    Friend WithEvents BtnNormal As Button
+    Friend WithEvents Label1 As Label
+    Friend WithEvents VentanaAcceso As GroupBox
+    Friend WithEvents TxtPass As TextBox
+    Friend WithEvents TxtUser As TextBox
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Label2 As Label
+    Friend WithEvents BtnAceptar As Button
+    Friend WithEvents BtnCancelar As Button
 End Class

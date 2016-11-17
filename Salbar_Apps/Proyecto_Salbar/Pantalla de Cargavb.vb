@@ -8,10 +8,11 @@
         Else
             PInicio.Ip_Original = temp
             PInicio.Show()
-            Timer1.Enabled = False
+            Timer1.Stop()
             Me.Hide()
         End If
         '==================================
+
     End Sub
 
     Private Sub Pantalla_de_Cargavb_Load(sender As Object, e As EventArgs) Handles MyBase.Load

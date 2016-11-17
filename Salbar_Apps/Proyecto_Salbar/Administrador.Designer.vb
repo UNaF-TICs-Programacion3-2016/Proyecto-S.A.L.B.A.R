@@ -25,9 +25,9 @@ Partial Class Administrador
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.ComboBox2 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox4 = New System.Windows.Forms.ComboBox()
+        Me.CmbEstaciones = New System.Windows.Forms.ComboBox()
         Me.ComboBox5 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox6 = New System.Windows.Forms.ComboBox()
+        Me.CmbSexo = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -69,13 +69,13 @@ Partial Class Administrador
         Me.ComboBox2.Size = New System.Drawing.Size(121, 21)
         Me.ComboBox2.TabIndex = 2
         '
-        'ComboBox4
+        'CmbEstaciones
         '
-        Me.ComboBox4.FormattingEnabled = True
-        Me.ComboBox4.Location = New System.Drawing.Point(222, 94)
-        Me.ComboBox4.Name = "ComboBox4"
-        Me.ComboBox4.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox4.TabIndex = 4
+        Me.CmbEstaciones.FormattingEnabled = True
+        Me.CmbEstaciones.Location = New System.Drawing.Point(222, 94)
+        Me.CmbEstaciones.Name = "CmbEstaciones"
+        Me.CmbEstaciones.Size = New System.Drawing.Size(121, 21)
+        Me.CmbEstaciones.TabIndex = 4
         '
         'ComboBox5
         '
@@ -85,13 +85,13 @@ Partial Class Administrador
         Me.ComboBox5.Size = New System.Drawing.Size(121, 21)
         Me.ComboBox5.TabIndex = 5
         '
-        'ComboBox6
+        'CmbSexo
         '
-        Me.ComboBox6.FormattingEnabled = True
-        Me.ComboBox6.Location = New System.Drawing.Point(222, 36)
-        Me.ComboBox6.Name = "ComboBox6"
-        Me.ComboBox6.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox6.TabIndex = 6
+        Me.CmbSexo.FormattingEnabled = True
+        Me.CmbSexo.Location = New System.Drawing.Point(222, 36)
+        Me.CmbSexo.Name = "CmbSexo"
+        Me.CmbSexo.Size = New System.Drawing.Size(121, 21)
+        Me.CmbSexo.TabIndex = 6
         '
         'Label1
         '
@@ -225,9 +225,9 @@ Partial Class Administrador
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.ComboBox6)
+        Me.Controls.Add(Me.CmbSexo)
         Me.Controls.Add(Me.ComboBox5)
-        Me.Controls.Add(Me.ComboBox4)
+        Me.Controls.Add(Me.CmbEstaciones)
         Me.Controls.Add(Me.ComboBox2)
         Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.DataGridView1)
@@ -242,9 +242,9 @@ Partial Class Administrador
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents ComboBox2 As ComboBox
-    Friend WithEvents ComboBox4 As ComboBox
+    Friend WithEvents CmbEstaciones As ComboBox
     Friend WithEvents ComboBox5 As ComboBox
-    Friend WithEvents ComboBox6 As ComboBox
+    Friend WithEvents CmbSexo As ComboBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
