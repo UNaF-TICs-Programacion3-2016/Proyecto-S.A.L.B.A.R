@@ -74,13 +74,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Conexion.vb" />
-    <Compile Include="Administrador.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Administrador.Designer.vb">
-      <DependentUpon>Administrador.vb</DependentUpon>
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Frecuencia.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -99,9 +92,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Administrador.resx">
-      <DependentUpon>Administrador.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
