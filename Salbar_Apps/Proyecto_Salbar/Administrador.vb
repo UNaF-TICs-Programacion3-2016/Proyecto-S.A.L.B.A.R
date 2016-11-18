@@ -12,7 +12,6 @@
         Handles CmbEspecie.SelectedIndexChanged, CmbSexo.SelectedIndexChanged,
                 CmbSonido.SelectedIndexChanged, CmbEstaciones.SelectedIndexChanged,
                 CmbPais.SelectedIndexChanged, CmbRegion.SelectedIndexChanged, CmbCiudad.SelectedIndexChanged
-
         MsgBox("HOLA :)", vbInformation)
     End Sub
 End Class
