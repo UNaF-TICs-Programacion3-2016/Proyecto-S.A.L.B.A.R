@@ -18,9 +18,11 @@ Public Class PInicio
         TxtUser.Text = ""
         TxtPass.Text = ""
         VentanaAcceso.Visible = True
+        BtnAdmin.Enabled = False
     End Sub
 
     Private Sub BtnNormal_Click(sender As Object, e As EventArgs) Handles BtnNormal.Click
+        BtnAdmin.Enabled = True
         BtnAnalizar.Left = 591
         BtnAnalizar.Top = 404
         BtnAdministrar.Visible = False
@@ -54,4 +56,6 @@ Public Class PInicio
     Private Sub BtnAnalizar_Click(sender As Object, e As EventArgs) Handles BtnAnalizar.Click
         Analizar.Show()
     End Sub
+
+
 End Class

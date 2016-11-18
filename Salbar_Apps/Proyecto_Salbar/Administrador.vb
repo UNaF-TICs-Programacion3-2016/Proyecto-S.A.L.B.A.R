@@ -13,6 +13,6 @@
                 CmbSonido.SelectedIndexChanged, CmbEstaciones.SelectedIndexChanged,
                 CmbPais.SelectedIndexChanged, CmbRegion.SelectedIndexChanged, CmbCiudad.SelectedIndexChanged
 
-        MsgBox("hola")
+        MsgBox("HOLA :)", vbInformation)
     End Sub
 End Class

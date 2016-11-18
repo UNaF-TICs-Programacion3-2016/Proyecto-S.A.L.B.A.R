@@ -6,10 +6,10 @@
         If ProgressBar1.Value < 100 Then
             ProgressBar1.Value += 25
         Else
-            PInicio.Ip_Original = temp
+            'PInicio.Ip_Original = temp
             PInicio.Show()
             Timer1.Stop()
-            Me.Hide()
+            Me.Close()
         End If
         '==================================
 
@@ -19,7 +19,7 @@
         Me.Show()
 
         '===========OPTENCION DE DIRECCION==========
-        temp.myIp()
+        'temp.myIp()
         '===========================================
     End Sub
 End Class
