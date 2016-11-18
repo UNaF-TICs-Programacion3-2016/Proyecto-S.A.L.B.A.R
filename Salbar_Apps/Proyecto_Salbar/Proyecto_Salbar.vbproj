@@ -111,10 +111,9 @@
     <Compile Include="Administrador.Designer.vb">
       <DependentUpon>Administrador.vb</DependentUpon>
     </Compile>
-    <Compile Include="Administrador.vb">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Administrador.vb" />
     <Compile Include="Analisis.vb" />
+    <Compile Include="Conexion.vb" />
     <Compile Include="Geolocalizacion.vb" />
     <Compile Include="Pantalla de Cargavb.Designer.vb">
       <DependentUpon>Pantalla de Cargavb.vb</DependentUpon>
