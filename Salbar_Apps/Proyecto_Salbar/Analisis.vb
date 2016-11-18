@@ -1,6 +1,6 @@
 ﻿Public Class Analisis
-    'Private oconoxion As New Conexion
-    'Private ofrecuencia As New frecuencia
+    Private oconoxion As New Conexion
+    Private ofrecuencia As New Frecuencia
     Private oLocalizacion As New Geolocalizacion
 
     Public Structure Animal
@@ -16,7 +16,6 @@
 
 
     Public Function Agregar_Animal()
-
 
     End Function
 
