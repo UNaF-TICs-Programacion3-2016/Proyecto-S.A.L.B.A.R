@@ -102,41 +102,39 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Agregar.Designer.vb">
+    <Compile Include="Capa3\Agregar.Designer.vb">
       <DependentUpon>Agregar.vb</DependentUpon>
     </Compile>
-    <Compile Include="Agregar.vb">
+    <Compile Include="Capa3\Agregar.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Administrador.Designer.vb">
       <DependentUpon>Administrador.vb</DependentUpon>
     </Compile>
-    <Compile Include="Administrador.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Analisis.vb" />
-    <Compile Include="Conexion.vb" />
-    <Compile Include="Geolocalizacion.vb" />
-    <Compile Include="Pantalla de Cargavb.Designer.vb">
+    <Compile Include="Capa3\Administrador.vb" />
+    <Compile Include="Capa2\Analisis.vb" />
+    <Compile Include="Capa1\Conexion.vb" />
+    <Compile Include="Capa2\Geolocalizacion.vb" />
+    <Compile Include="Capa3\Pantalla de Cargavb.Designer.vb">
       <DependentUpon>Pantalla de Cargavb.vb</DependentUpon>
     </Compile>
-    <Compile Include="Pantalla de Cargavb.vb">
+    <Compile Include="Capa3\Pantalla de Cargavb.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Pantalla Inicio.vb">
+    <Compile Include="Capa3\Pantalla Inicio.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Pantalla Inicio.Designer.vb">
+    <Compile Include="Capa3\Pantalla Inicio.Designer.vb">
       <DependentUpon>Pantalla Inicio.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Analizar.Designer.vb">
+    <Compile Include="Capa3\Analizar.Designer.vb">
       <DependentUpon>Analizar.vb</DependentUpon>
     </Compile>
-    <Compile Include="Analizar.vb">
+    <Compile Include="Capa3\Analizar.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Frecuencia.vb" />
+    <Compile Include="Capa2\Frecuencia.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -159,19 +157,19 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Agregar.resx">
+    <EmbeddedResource Include="Capa3\Agregar.resx">
       <DependentUpon>Agregar.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Analizar.resx">
+    <EmbeddedResource Include="Capa3\Analizar.resx">
       <DependentUpon>Analizar.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Administrador.resx">
+    <EmbeddedResource Include="Capa3\Administrador.resx">
       <DependentUpon>Administrador.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pantalla de Cargavb.resx">
+    <EmbeddedResource Include="Capa3\Pantalla de Cargavb.resx">
       <DependentUpon>Pantalla de Cargavb.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pantalla Inicio.resx">
+    <EmbeddedResource Include="Capa3\Pantalla Inicio.resx">
       <DependentUpon>Pantalla Inicio.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
