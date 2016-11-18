@@ -102,14 +102,16 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Capa3\Administrador.designer.vb">
+      <DependentUpon>Administrador.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Capa3\Administrador.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Capa3\Agregar.Designer.vb">
       <DependentUpon>Agregar.vb</DependentUpon>
     </Compile>
     <Compile Include="Capa3\Agregar.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Capa3\Administrador.Designer.vb" />
-    <Compile Include="Capa3\Administrador.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Capa2\Analisis.vb" />
@@ -157,14 +159,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Capa3\Administrador.resx">
+      <DependentUpon>Administrador.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Capa3\Agregar.resx">
       <DependentUpon>Agregar.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Capa3\Analizar.resx">
       <DependentUpon>Analizar.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Capa3\Administrador.resx">
-      <DependentUpon>Administrador.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Capa3\Pantalla de Cargavb.resx">
       <DependentUpon>Pantalla de Cargavb.vb</DependentUpon>
