@@ -108,10 +108,10 @@
     <Compile Include="Capa3\Agregar.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Administrador.Designer.vb">
-      <DependentUpon>Administrador.vb</DependentUpon>
+    <Compile Include="Capa3\Administrador.Designer.vb" />
+    <Compile Include="Capa3\Administrador.vb">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Capa3\Administrador.vb" />
     <Compile Include="Capa2\Analisis.vb" />
     <Compile Include="Capa1\Conexion.vb" />
     <Compile Include="Capa2\Geolocalizacion.vb" />
